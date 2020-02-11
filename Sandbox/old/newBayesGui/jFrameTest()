@@ -1,0 +1,8 @@
+import javax.swing.*
+
+frame = JFrame;
+frame.setSize(400,400);
+
+pane = JTabbedPane();
+
+frame.getContentPane.add(pane);

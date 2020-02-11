@@ -1,0 +1,22 @@
+function setRois
+
+
+
+problem = getappdata(0,'problem');
+
+
+
+rois = [1 1 0.022 0.04 8;
+        1 1 0.25 0.35 1.1;
+        0 2 0.0526 0.090 5;
+        0 3 0.124 0.174 5;
+        0 5 0.1074 0.1836 5];
+
+
+problem.calculations.rois = rois;
+
+
+setappdata(0,'problem',problem);
+
+%
+

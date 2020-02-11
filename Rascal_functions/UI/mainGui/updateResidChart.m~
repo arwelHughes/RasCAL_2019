@@ -1,0 +1,26 @@
+function UpdateResidChart()
+
+
+problem = getappdata(0,'problem');
+resids = problem.calculations.resids;
+numberOfContrasts = problem.numberOfContrasts;
+dataPresent = problem.dataPresent;
+figure(1)
+clf
+hold on
+colours = ['r' 'g' 'm' 'b' 'g' 'r' 'g' 'm' 'b' 'g'];
+for i = 1:numberOfContrasts
+    if dataPresent(i)
+        thisResid = resids{i};
+        plot(thisResid(:,1),thisResid(:,2)-(i*10), [colours(i) '-']);
+        thisMask = problem.calculations.roiMasks{i};
+        
+    end
+end
+set(gca,'XScale','log');
+hold off
+drawnow;
+
+
+
+
