@@ -26,14 +26,6 @@ rascalPaths = {fullfile('Rascal_functions','') ;
     fullfile('Rascal_functions','eAnalysis','bayes');
     fullfile('Rascal_functions','eAnalysis','bayes','mcmcstat');
     fullfile('Rascal_functions','eAnalysis','bayes','bayesRefPlot');
-    %    '/home/arwel/Desktop/RasCAL_release/Rascal_functions/eAnalysis/bayes/bayesRefPlot'
-
-
-    %fullfile('Sandbox','mcmcStatDev','bayesRefPlot');
-    %fullfile('Sandbox','mcmcStatDev');
-    %fullfile('Sandbox','mcmcStatDev','mcmcstat');
-    %fullfile('Sandbox','newTable');
-    
     };
 
 for i = 1:length(rascalPaths)
@@ -51,7 +43,6 @@ javaaddpath (fullfile(rascalPath,'javaSources','editProjectGui','dist','editProj
 javaaddpath (fullfile(rascalPath,'javaSources','JXLayer','filters.jar'));
 javaaddpath (fullfile(rascalPath,'javaSources','newMDI','dist','newMDI.jar'));
 javaaddpath (fullfile(rascalPath,'javaSources','newMatlabChartConstructs','newMatlabChartConstructs','dist','newMatlabChartConstructs.jar'));
-%javaaddpath('/home/arwel/Desktop/oldRascalFiles/Rascal/javaSources/newMatlabChartConstructs/newMatlabChartConstructs/dist/newMatlabChartConstructs.jar');
 javaaddpath (fullfile(rascalPath,'javaSources','RasCALTables','dist','RasCALTables.jar'));
 javaaddpath (fullfile(rascalPath,'javaSources','JXLayer','jxlayer.jar'));
 javaaddpath (fullfile(rascalPath,'Rascal_functions','UI','RascalClasses','jfreechart-1.0.10.jar',''));
