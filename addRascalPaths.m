@@ -17,8 +17,6 @@ rascalPaths = {fullfile('Rascal_functions','') ;
     fullfile('Rascal_functions','Optim_algs','DE','');
     fullfile('Rascal_functions','Optim_algs','new DE','');
     
-    fullfile('Rascal_functions','Paratt','codegen','mex','callParatt');
-    
     fullfile('Rascal_functions','eAnalysis','');
     fullfile('Rascal_functions','eAnalysis','bootStrap','');
     fullfile('Rascal_functions','eAnalysis','export_fig','');
