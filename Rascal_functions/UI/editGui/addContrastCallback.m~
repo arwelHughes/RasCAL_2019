@@ -46,13 +46,13 @@ mainTabbedPane.addTab(['Contrast ' num2str(thisContrast)],panel);
 
 %thisOgWin = setupNewOpenGenieWindow(problem,thisContrast);
 
-%desktop.setLayer(thisOgWin,4);
-%desktop.add(thisOgWin);
-%thisOgWin.setVisible(false);
-%thisOgWin.setLocation(mainFrame.getLocation);
-%thisOgWin.setSize(600,400);
+desktop.setLayer(thisOgWin,4);
+desktop.add(thisOgWin);
+thisOgWin.setVisible(false);
+thisOgWin.setLocation(mainFrame.getLocation);
+thisOgWin.setSize(600,400);
 
-%allOpenGenieWindows{thisContrast} = thisOgWin;
+allOpenGenieWindows{thisContrast} = thisOgWin;
 
 
 setappdata(0,'allPanels',allPanels);

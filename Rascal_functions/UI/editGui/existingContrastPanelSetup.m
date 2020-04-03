@@ -55,9 +55,9 @@ if strcmp(computer,'MACI') && strcmp(type,'OpenGenie Script')
     type = 'Simulation';
 end
 
-if strcmp(computer,'MACI')
+%if strcmp(computer,'MACI')
     typeComboBox.removeItem('OpenGenie Script');
-end
+%end
     
 switch type
     case 'Simulation'
@@ -69,10 +69,10 @@ switch type
        fileTypeCombo.setSelectedIndex(problem.contrastFileTypes(thisContrast));
        thePanel.showFileItems();
        thePanel.getOgEditButton().setVisible(false)
-    case 'OpenGenie Script'
-       typeComboBox.setSelectedItem('OpenGenie Script');
-       thePanel.hideFileItems();
-       thePanel.showOpenGenieItems();
+%     case 'OpenGenie Script'
+%        typeComboBox.setSelectedItem('OpenGenie Script');
+%        thePanel.hideFileItems();
+%        thePanel.showOpenGenieItems();
 end
         
 backgroundComboBox.setSelectedIndex(problem.contrastBacks(thisContrast)-1);

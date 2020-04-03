@@ -67,7 +67,7 @@ for i = 1:number_of_contrasts
                 else
                     layers = [thicks(:) sldss(:) roughs(:)];
                 end
-                s_sub = rsub;
+                ssubs(i) = rsub;
         end
         
         %Deal with the %coverage if present
