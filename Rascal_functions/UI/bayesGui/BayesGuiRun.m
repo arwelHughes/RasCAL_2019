@@ -47,8 +47,8 @@ params = params(:);
 output = runBayes(loop,nsimu,burnin,params);
 
 % Make the posterior plots
-bestVals_max = makePosteriorPlots(output,params);
-bestVals_max = output.results.mean;
+[bestVals_max,posteriors] = makePosteriorPlots(output,params);
+%bestVals_max = output.results.mean;
 
     
 % Calculate the prediction intervals
@@ -97,12 +97,14 @@ mcmcplot(output.chain,[],results,'chainpanel');
 problem = oldProblem;
 setappdata(0,'problem',problem);
 
-% bayesOutput.bayesResults = output;
-% bayesOutput.bestValsMax = bestVals_max;
-% bayesOutput.bestRefSld = ref;
-% bayesOutput.intervals = intervals;
+% Now make the output structure
+bayesOutput.posteriors = posteriors;
+bayesOutput.bestFits = best;
+bayesOutput.intervals = intervals;
+bayesOutput.data = problem.shifted_data;
+bayesOutput.MCMCoutput = output;
 
-setappdata(0,'bayesOutput',output);
+setappdata(0,'bayesOutput',bayesOutput);
 setappdata(0,'bayesHasRun',true);
 
 

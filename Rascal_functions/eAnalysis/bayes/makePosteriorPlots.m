@@ -1,4 +1,4 @@
-function bestPars_max = makePosteriorPlots(output,params)
+function [bestPars_max,posteriors] = makePosteriorPlots(output,params)
 
 
 bayesHandles = getappdata(0,'bayesHandles');
@@ -14,6 +14,7 @@ numPars = size(chain,2);
 
 rows = ceil(numPars/4);
 cols = 3;
+posteriors = cell(1,numPars);
 
 for i = 1:numPars
     figure(bayesHandles.hHists);
@@ -35,7 +36,11 @@ for i = 1:numPars
     if length(maxPos) > 1; maxPos = mean(maxPos); end
     bestPars_max(i) = edges2(maxPos);  % Now maximum position on posterior fit, rather than mean.
     
-%     msgBoxTest('update','',i/numPars);
+    % Store the histograms and posteriors for eventual output
+    thisPosterior.bins = edges2;
+    thisPosterior.bincounts = N;
+    posteriors{i} = thisPosterior;
+
     drawnow;
 end
 

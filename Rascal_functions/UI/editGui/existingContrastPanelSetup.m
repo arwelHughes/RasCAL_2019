@@ -1,4 +1,4 @@
-function thePanel = existingContrastPanelSetup(thisContrast);
+function thePanel = existingContrastPanelSetup(thisContrast)
 
 problem = getappdata(0,'problem');
 allContrastTables = getappdata(0,'allContrastTables');
@@ -113,7 +113,7 @@ if thisContrast <= length(mainGuiPanels)
     
     previousVals.data = problem.data{thisContrast};
 else
-    previousVals.simMin = '0.01';;
+    previousVals.simMin = '0.01';
     previousVals.simMax = '0.7'; 
 
     previousVals.repeatsOn = 0;  
