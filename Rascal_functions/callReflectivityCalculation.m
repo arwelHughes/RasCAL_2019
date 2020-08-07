@@ -49,43 +49,8 @@ for i = 1:number_of_contrasts
     ssubs(i) = s_sub;
     output = outputs{i};
     
-    % Group the roughness' according to geometry
-    if ~isempty(output)
-        switch geometry
-            case 'Air / Liquid (or solid)'
-                layers = output;
-            case 'Solid / Liquid'
-                roughs = output(:,3);
-                sldss = output(:,2);
-                thicks = output(:,1);
-                rsub = roughs(end);
-                roughs = [s_sub ; roughs(1:end-1)];
-                n = size(output);
-                if n(2) == 5
-                    cov = output(:,4);
-                    layers = [thicks(:) sldss(:) roughs(:) cov(:)];
-                else
-                    layers = [thicks(:) sldss(:) roughs(:)];
-                end
-                ssubs(i) = rsub;
-        end
-        
-        %Deal with the %coverage if present
-        n = size(output);
-        if n(2) == 5
-            for j = 1:n(1)
-                this_pcw = output(j,4);
-                if output(j,5) == 1
-                    pc_add = nbsubs(i);
-                else
-                    pc_add = nbairs(i);
-                end
-                if ~isnan(this_pcw)
-                    layers(j,2) = pc_add*(this_pcw/100) + (1-(this_pcw/100))*layers(j,2);
-                end
-            end
-        end
-    end
+    sub_rough = params(1);
+    [layers, ssubs(i)] = groupLayers_Mod(output,sub_rough,geometry,nbairs(i),nbsubs(i));
     
     this_data = allData{i};
     xdata = this_data(:,1);

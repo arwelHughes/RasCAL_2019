@@ -31,6 +31,7 @@ for i = 1:numberOfContrasts
     
     switch problem.dataPresent(i)
         case 1
+            thisNewData = [];
             thisData = allData{i};
             thisNewData(:,1) = thisData(:,1);
             thisNewData(:,2) = thisData(:,1);
