@@ -1,0 +1,51 @@
+# CompilerName=gcc
+# Mode=optim
+ninja_required_version = 1.3
+
+# Basic folders
+root = .
+builddir = $root/build/glnxa64
+matlabdir = /usr/local/MATLAB/R2020a
+startdir = /home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder
+
+# Toolchain information
+cc = /bin/gcc
+cxx = g++
+linker = /bin/gcc
+linkerxx = g++
+
+cflags =  -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DMODEL=abeles_loop_new_mex -c 
+
+cxxflags =  -fexceptions -fPIC -fno-omit-frame-pointer -pthread -std=c++11 -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c++11 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DMODEL=abeles_loop_new_mex -c 
+
+ldflags =  -pthread -Wl,--no-undefined -Wl,-rpath-link,$matlabdir/bin/glnxa64 -shared  -L"$matlabdir/bin/glnxa64" -lmx -lmex -lmat -lm -lstdc++  -o abeles_loop_new_mex.mexa64 -lemlrt -lcovrt -lut -lmwmathutil  -Wl,--version-script,abeles_loop_new_mex.map
+
+# Build Rules
+rule cc
+    command = $cc $cflags $in -o $out
+
+rule cxx
+    command = $cxx $cxxflags $in -o $out
+
+rule link
+    command = $linker $in $ldflags
+
+rule linkxx
+    command = $linkerxx $in $ldflags
+
+# Build
+build $builddir/rt_nonfinite.o : cc $root/rt_nonfinite.c
+build $builddir/abeles_loop_new_data.o : cc $root/abeles_loop_new_data.c
+build $builddir/abeles_loop_new_initialize.o : cc $root/abeles_loop_new_initialize.c
+build $builddir/abeles_loop_new_terminate.o : cc $root/abeles_loop_new_terminate.c
+build $builddir/abeles_loop_new.o : cc $root/abeles_loop_new.c
+build $builddir/abeles.o : cc $root/abeles.c
+build $builddir/sqrt.o : cc $root/sqrt.c
+build $builddir/_coder_abeles_loop_new_api.o : cc $root/interface/_coder_abeles_loop_new_api.c
+build $builddir/_coder_abeles_loop_new_mex.o : cc $root/interface/_coder_abeles_loop_new_mex.c
+build $builddir/abeles_loop_new_emxutil.o : cc $root/abeles_loop_new_emxutil.c
+build $builddir/_coder_abeles_loop_new_info.o : cc $root/interface/_coder_abeles_loop_new_info.c
+build $builddir/c_mexapi_version.o : cc $matlabdir/extern/version/c_mexapi_version.c
+
+# Link
+build $root/abeles_loop_new_mex.mexa64 : link $builddir/rt_nonfinite.o $builddir/abeles_loop_new_data.o $builddir/abeles_loop_new_initialize.o $builddir/abeles_loop_new_terminate.o $builddir/abeles_loop_new.o $builddir/abeles.o $builddir/sqrt.o $builddir/_coder_abeles_loop_new_api.o $builddir/_coder_abeles_loop_new_mex.o $builddir/abeles_loop_new_emxutil.o $builddir/_coder_abeles_loop_new_info.o $builddir/c_mexapi_version.o 

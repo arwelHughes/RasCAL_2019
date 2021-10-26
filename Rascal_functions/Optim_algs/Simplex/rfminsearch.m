@@ -364,6 +364,7 @@ while func_evals < maxfun && itercount < maxiter && stopflag == 0
     itercount = itercount + 1;
     if prnt == 3 && (rem(itercount,iterUpdate) == 0)
         addInfoText(sprintf(' %5.0f        %5.0f     %12.6g         %s', itercount, func_evals, fv(1), how))
+        
     elseif prnt == 4
         addInfoText(' ')
         addInfoText(how)

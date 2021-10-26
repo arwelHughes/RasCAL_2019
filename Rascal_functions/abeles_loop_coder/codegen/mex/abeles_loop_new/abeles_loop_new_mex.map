@@ -1,0 +1,21 @@
+MEX {
+	global:
+		mexFunction;
+		mexfilerequiredapiversion;
+		emlrtMexFcnProperties;
+		abeles_loop_new_initialize;
+		abeles_loop_new_terminate;
+		abeles_loop_new_atexit;
+		abeles_loop_new;
+		emxFree_real_T;
+		emxInit_real_T;
+		emxEnsureCapacity_cell_wrap_0;
+		emxEnsureCapacity_real_T;
+		emxInit_cell_wrap_0;
+		emxFree_cell_wrap_0;
+		emxInit_cell_wrap_1;
+		emxFree_cell_wrap_1;
+		emxEnsureCapacity_cell_wrap_1;
+	local:
+		*;
+};

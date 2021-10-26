@@ -64,7 +64,8 @@ textArea.setCaretPosition(textArea.getDocument().getLength());
 iframeInfoPane.setContentPane(infoScrollPane);
 desktop.add(iframeInfoPane);
 setappdata(0,'textArea',textArea);
-addInfoText('Welcome to Rascal. Version 2.0.0 Beta - Training 2016');
+version = getVersion();
+addInfoText(sprintf('Welcome to Rascal. Version %s',version));
 
 setappdata(0,'iframeInfoPane',iframeInfoPane);
 

@@ -119,7 +119,12 @@ problem = unpackparams(problem);
 problem = reflectivity_calculation(problem);
 %problem = getappdata(0,'problem');
 if  rem(itercount,update) == 0
+    problem.calcSLD = 1;
+    problem = reflectivity_calculation(problem);
+    setappdata(0,'problem',problem);    
     rJavaUpdatePlots();
+    problem.calcSLD = 0;
+    setappdata(0,'problem',problem);    
     if problem.update_params == 1;
         update_params();
     end

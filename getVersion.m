@@ -1,4 +1,4 @@
 function version = getVersion()
 
-version = '1.0.0 alpha';
+version = 'r2019_v_1.1.0';
 

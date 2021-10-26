@@ -10,6 +10,7 @@ addInfoText('')
 
 
 problem = getappdata(0,'problem'); 
+
 originalProblem = problem;
 problem = updateChecksStatus(problem);
 problem = packparams(problem);
@@ -17,31 +18,48 @@ problem.bestPars = problem.fitpars;
 setappdata(0,'problem',problem);
 
 fitpars = problem.fitpars;
-scaledPars = fitpars./fitpars;
+setappdata(0,'fitpars',fitpars);
 
-addInfoText('Calculating Hessian...');
-[hess,b]=hessian_test(@calcThisChi,scaledPars);
+% %scaledPars = fitpars./fitpars;
+% % problem = scalePars(problem);
+% % scaledPars = problem.fitpars;
+% 
+% addInfoText('Calculating Hessian...');
+% [hess,b]=hessian_test(@calcThisChi,fitpars);
+% 
+% addInfoText('Obtaining Eigenvalues and vectors...');
+% [e,d] = eig(hess);
+% 
+% addInfoText('Calculating Covariance Matrix...');
+% cov = inv(hess);
+% 
+% addInfoText('Calculating Correlation Matrix...');
+% for i = 1:length(fitpars)
+%     for j = 1:length(fitpars);
+%         cM(i,j) = cov(i,j) / sqrt(cov(i,i)*cov(j,j));
+%     end
+% end
+% 
+% addInfoText('Calculating standard error...');
+% e1 = diag(cov);
+% err = sqrt(e1);
+% 
+% % limits = problem.fitconstr;
+% % 
+% % for i = 1:length(err)
+% %     newErr(i) = (err(i).*(limits(i,2)-limits(i,1)))+limits(i,1);
+% % end
+% % 
+% 
+% 
+% 
+% %err = err' .* fitpars;
+% problem.fiterrs = ;
 
-addInfoText('Obtaining Eigenvalues and vectors...');
-[e,d] = eig(hess);
+[err,cov,cM,hess] = standardError_noScaling();
+problem.fiterrs = err';
 
-addInfoText('Calculating Covariance Matrix...');
-cov = inv(hess);
-
-addInfoText('Calculating Correlation Matrix...');
-for i = 1:length(fitpars)
-    for j = 1:length(fitpars);
-        cM(i,j) = cov(i,j) / sqrt(cov(i,i)*cov(j,j));
-    end
-end
-
-addInfoText('Calculating standard error...');
-e1 = diag(cov);
-err = sqrt(e1);
-err = err' .* fitpars;
-problem.fiterrs = err;
-
-setappdata(0,'problem',originalProblem);
+%
 
 
 %Populate the tables....
@@ -79,28 +97,31 @@ setappdata(0,'allCalcResults',allCalcResults);
 % eigenvalsScrollPane = statsPanel.getCorrScrollPane();
 % eigenvalsScrollPane.add(correlationTable);
 % eigenvalsScrollPane.setViewportView(correlationTable);
-
-
+%originalProblem.calcSLD = 1;
+%setappdata(0,'problem',originalProblem);
 
 
 end
 
 %--------------------------------------------------------------------------
 
-function thisVal = calcThisChi(x0);
+function thisVal = calcThisChi(x0)
 
 
 
 problem = getappdata(0,'problem');
-bestPars = problem.bestPars;
-
 oldProblem = problem;
-problem.fitpars = x0.*bestPars;
+
+problem.fitpars = x0;
+%problem = unscalePars(problem);
+
+% oldProblem = problem;
+% problem.fitpars = x0.*bestPars;
 
 problem = unpackparams(problem);
-setappdata(0,'problem',problem);
-reflectivity_calculation;
-problem = getappdata(0,'problem');
+%setappdata(0,'problem',problem);
+problem = reflectivity_calculation(problem);
+%problem = getappdata(0,'problem');
 thisVal = problem.calculations.sum_chi;
 
 setappdata(0,'problem',oldProblem);

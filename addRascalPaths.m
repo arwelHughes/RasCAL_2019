@@ -20,6 +20,7 @@ rascalPaths = {fullfile('Rascal_functions','') ;
     fullfile('Rascal_functions','eAnalysis','');
     fullfile('Rascal_functions','eAnalysis','bootStrap','');
     fullfile('Rascal_functions','eAnalysis','export_fig','');
+    fullfile('Rascal_functions','eAnalysis','DERIVESTsuite','');
     
     fullfile('Rascal_functions','eAnalysis','bayes');
     fullfile('Rascal_functions','eAnalysis','bayes','mcmcstat');

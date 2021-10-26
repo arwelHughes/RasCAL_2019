@@ -3,13 +3,12 @@ function problem =  fitfinish(problem)
 %Unpack the parameters
 problem = unpackparams(problem);
 
-setappdata(0,'problem',problem);
+%setappdata(0,'problem',problem);
 
 %Update calculations and plots;
-reflectivity_calculation();
-updateTheGraphs();
+problem = reflectivity_calculation(problem);
 setappdata(0,'problem',problem);
-
+updateTheGraphs();
 %Update the tables
 update_params();
 

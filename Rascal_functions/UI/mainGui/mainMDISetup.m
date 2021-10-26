@@ -82,7 +82,7 @@ setappdata(0,'undoRedoMenuItems',undoRedoMenuItems);
 %Options menu
 toolsMenu = javaObjectEDT(JMenu('Tools'));
 algSubMenu = javaObjectEDT(JMenu('Select Fitting Algorithm'));
-errorsMenu = javaObjectEDT(JMenuItem('Bootstrap Analysis'));
+errorsMenu = javaObjectEDT(JMenuItem('Error Analysis'));
 bayesMenu = javaObjectEDT(JMenuItem('Bayesian Analysis'));
 preferencesMenuItem = javaObjectEDT(JMenuItem('Preferences'));
 slidersMenuItem = javaObjectEDT(JMenuItem('Show Sliders'));
