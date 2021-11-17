@@ -127,7 +127,7 @@ for i = 1:number_of_contrasts
     end
 end
     
-simRef = abeles_loop_new(simXdata(:),slds(:),nbairs(:),nbsubs(:), repeats(:), resolutions(:), ssubs(:));
+simRef = abeles_loop_new_mex(simXdata(:),slds(:),nbairs(:),nbsubs(:), repeats(:), resolutions(:), ssubs(:));
 
 for i = 1:number_of_contrasts
     splits = simXdata_splits{i};

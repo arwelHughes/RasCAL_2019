@@ -1,24 +1,24 @@
-# CompilerName=gcc
+# CompilerName=clang
 # Mode=optim
 ninja_required_version = 1.3
 
 # Basic folders
 root = .
-builddir = $root/build/glnxa64
-matlabdir = /usr/local/MATLAB/R2020a
-startdir = /home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder
+builddir = $root/build/maci64
+matlabdir = /Applications/MATLAB_R2021a.app
+startdir = /Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder
 
 # Toolchain information
-cc = /bin/gcc
-cxx = g++
-linker = /bin/gcc
-linkerxx = g++
+cc = /usr/bin/xcrun -sdk macosx10.15 clang
+cxx = /usr/bin/xcrun -sdk macosx10.15 clang++
+linker = /usr/bin/xcrun -sdk macosx10.15 clang
+linkerxx = /usr/bin/xcrun -sdk macosx10.15 clang++
 
-cflags =  -fexceptions -fPIC -fno-omit-frame-pointer -pthread -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c99 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DMODEL=abeles_loop_new_mex -c 
+cflags =  -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c99 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c 
 
-cxxflags =  -fexceptions -fPIC -fno-omit-frame-pointer -pthread -std=c++11 -D_GNU_SOURCE -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -std=c++11 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DMODEL=abeles_loop_new_mex -c 
+cxxflags =  -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I "$root" -I "$startdir" -I "$root/interface" -I "$matlabdir/extern/include" -I "." -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c 
 
-ldflags =  -pthread -Wl,--no-undefined -Wl,-rpath-link,$matlabdir/bin/glnxa64 -shared  -L"$matlabdir/bin/glnxa64" -lmx -lmex -lmat -lm -lstdc++  -o abeles_loop_new_mex.mexa64 -lemlrt -lcovrt -lut -lmwmathutil  -Wl,--version-script,abeles_loop_new_mex.map
+ldflags =  -Wl,-twolevel_namespace -undefined error -arch x86_64 -mmacosx-version-min=10.14 -Wl,-syslibroot,/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -framework Cocoa -bundle  -stdlib=libc++ -L"$matlabdir/bin/maci64" -lmx -lmex -lmat -L"$matlabdir/extern/bin/maci64" -lMatlabDataArray -lMatlabEngine  -Wl,-rpath,@loader_path -o abeles_loop_new_mex.mexmaci64 -lemlrt -lcovrt -lut -lmwmathutil 
 
 # Build Rules
 rule cc
@@ -34,18 +34,16 @@ rule linkxx
     command = $linkerxx $in $ldflags
 
 # Build
-build $builddir/rt_nonfinite.o : cc $root/rt_nonfinite.c
-build $builddir/abeles_loop_new_data.o : cc $root/abeles_loop_new_data.c
-build $builddir/abeles_loop_new_initialize.o : cc $root/abeles_loop_new_initialize.c
-build $builddir/abeles_loop_new_terminate.o : cc $root/abeles_loop_new_terminate.c
-build $builddir/abeles_loop_new.o : cc $root/abeles_loop_new.c
-build $builddir/abeles.o : cc $root/abeles.c
-build $builddir/sqrt.o : cc $root/sqrt.c
-build $builddir/_coder_abeles_loop_new_api.o : cc $root/interface/_coder_abeles_loop_new_api.c
-build $builddir/_coder_abeles_loop_new_mex.o : cc $root/interface/_coder_abeles_loop_new_mex.c
-build $builddir/abeles_loop_new_emxutil.o : cc $root/abeles_loop_new_emxutil.c
-build $builddir/_coder_abeles_loop_new_info.o : cc $root/interface/_coder_abeles_loop_new_info.c
-build $builddir/c_mexapi_version.o : cc $matlabdir/extern/version/c_mexapi_version.c
+build $builddir/abeles_loop_new_data.o : cxx $root/abeles_loop_new_data.cpp
+build $builddir/rt_nonfinite.o : cxx $root/rt_nonfinite.cpp
+build $builddir/abeles_loop_new_initialize.o : cxx $root/abeles_loop_new_initialize.cpp
+build $builddir/abeles_loop_new_terminate.o : cxx $root/abeles_loop_new_terminate.cpp
+build $builddir/abeles_loop_new.o : cxx $root/abeles_loop_new.cpp
+build $builddir/_coder_abeles_loop_new_api.o : cxx $root/interface/_coder_abeles_loop_new_api.cpp
+build $builddir/_coder_abeles_loop_new_mex.o : cxx $root/interface/_coder_abeles_loop_new_mex.cpp
+build $builddir/sqrt.o : cxx $root/sqrt.cpp
+build $builddir/_coder_abeles_loop_new_info.o : cxx $root/interface/_coder_abeles_loop_new_info.cpp
+build $builddir/cpp_mexapi_version.o : cxx $matlabdir/extern/version/cpp_mexapi_version.cpp
 
 # Link
-build $root/abeles_loop_new_mex.mexa64 : link $builddir/rt_nonfinite.o $builddir/abeles_loop_new_data.o $builddir/abeles_loop_new_initialize.o $builddir/abeles_loop_new_terminate.o $builddir/abeles_loop_new.o $builddir/abeles.o $builddir/sqrt.o $builddir/_coder_abeles_loop_new_api.o $builddir/_coder_abeles_loop_new_mex.o $builddir/abeles_loop_new_emxutil.o $builddir/_coder_abeles_loop_new_info.o $builddir/c_mexapi_version.o 
+build $root/abeles_loop_new_mex.mexmaci64 : linkxx $builddir/abeles_loop_new_data.o $builddir/rt_nonfinite.o $builddir/abeles_loop_new_initialize.o $builddir/abeles_loop_new_terminate.o $builddir/abeles_loop_new.o $builddir/_coder_abeles_loop_new_api.o $builddir/_coder_abeles_loop_new_mex.o $builddir/sqrt.o $builddir/_coder_abeles_loop_new_info.o $builddir/cpp_mexapi_version.o 

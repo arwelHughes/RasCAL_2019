@@ -1,0 +1,62 @@
+[
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  abeles_loop_new_data.cpp -o build/maci64/abeles_loop_new_data.o",
+    "file": "abeles_loop_new_data.cpp",
+    "output": "build/maci64/abeles_loop_new_data.o"
+  },
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  rt_nonfinite.cpp -o build/maci64/rt_nonfinite.o",
+    "file": "rt_nonfinite.cpp",
+    "output": "build/maci64/rt_nonfinite.o"
+  },
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  abeles_loop_new_initialize.cpp -o build/maci64/abeles_loop_new_initialize.o",
+    "file": "abeles_loop_new_initialize.cpp",
+    "output": "build/maci64/abeles_loop_new_initialize.o"
+  },
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  abeles_loop_new_terminate.cpp -o build/maci64/abeles_loop_new_terminate.o",
+    "file": "abeles_loop_new_terminate.cpp",
+    "output": "build/maci64/abeles_loop_new_terminate.o"
+  },
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  abeles_loop_new.cpp -o build/maci64/abeles_loop_new.o",
+    "file": "abeles_loop_new.cpp",
+    "output": "build/maci64/abeles_loop_new.o"
+  },
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  interface/_coder_abeles_loop_new_api.cpp -o build/maci64/_coder_abeles_loop_new_api.o",
+    "file": "interface/_coder_abeles_loop_new_api.cpp",
+    "output": "build/maci64/_coder_abeles_loop_new_api.o"
+  },
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  interface/_coder_abeles_loop_new_mex.cpp -o build/maci64/_coder_abeles_loop_new_mex.o",
+    "file": "interface/_coder_abeles_loop_new_mex.cpp",
+    "output": "build/maci64/_coder_abeles_loop_new_mex.o"
+  },
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  sqrt.cpp -o build/maci64/sqrt.o",
+    "file": "sqrt.cpp",
+    "output": "build/maci64/sqrt.o"
+  },
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  interface/_coder_abeles_loop_new_info.cpp -o build/maci64/_coder_abeles_loop_new_info.o",
+    "file": "interface/_coder_abeles_loop_new_info.cpp",
+    "output": "build/maci64/_coder_abeles_loop_new_info.o"
+  },
+  {
+    "directory": "/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/mex/abeles_loop_new",
+    "command": "/usr/bin/xcrun -sdk macosx10.15 clang++ -fno-common -arch x86_64 -mmacosx-version-min=10.14 -fexceptions -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -fobjc-arc -std=c++11 -stdlib=libc++ -DMATLAB_MEX_FILE  -O2 -fwrapv -DNDEBUG -fvisibility=hidden -std=c++11 -I \".\" -I \"/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder\" -I \"./interface\" -I \"/Applications/MATLAB_R2021a.app/extern/include\" -I \".\" -DMODEL=abeles_loop_new_mex -DMW_NEEDS_VERSION_H -c  /Applications/MATLAB_R2021a.app/extern/version/cpp_mexapi_version.cpp -o build/maci64/cpp_mexapi_version.o",
+    "file": "/Applications/MATLAB_R2021a.app/extern/version/cpp_mexapi_version.cpp",
+    "output": "build/maci64/cpp_mexapi_version.o"
+  }
+]

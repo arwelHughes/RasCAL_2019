@@ -1,7 +1,7 @@
-<deployment-project plugin="plugin.coder" plugin-version="R2018b">
-  <configuration build-checksum="1737080926" file="/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/abeles_loop_new.prj" location="/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder" name="abeles_loop_new" target="target.unifiedcoder" target-name="MATLAB Coder">
+<deployment-project plugin="plugin.coder" plugin-version="R2021a">
+  <configuration build-checksum="2788718621" file="/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/abeles_loop_new.prj" location="/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder" name="abeles_loop_new" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
-      <param.BuiltInstrumentedMex />
+      <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
       <param.WorkingFolder>option.WorkingFolder.Project</param.WorkingFolder>
       <param.SpecifiedWorkingFolder />
@@ -12,11 +12,12 @@
       <param.ExtrinsicCalls>true</param.ExtrinsicCalls>
       <param.IntegrityChecks>true</param.IntegrityChecks>
       <param.SaturateOnIntegerOverflow>true</param.SaturateOnIntegerOverflow>
+      <param.EnableAutoParallelization>false</param.EnableAutoParallelization>
       <param.GlobalDataSyncMethod>option.GlobalDataSyncMethod.SyncAlways</param.GlobalDataSyncMethod>
       <param.EnableVariableSizing>true</param.EnableVariableSizing>
       <param.DynamicMemoryAllocation>option.DynamicMemoryAllocation.Threshold</param.DynamicMemoryAllocation>
       <param.DynamicMemoryAllocationThreshold>65536</param.DynamicMemoryAllocationThreshold>
-      <param.DynamicMemoryAllocationInterface>option.DynamicMemoryAllocationInterface.CPP</param.DynamicMemoryAllocationInterface>
+      <param.DynamicMemoryAllocationInterface>option.DynamicMemoryAllocationInterface.AUTO</param.DynamicMemoryAllocationInterface>
       <param.RowMajor>option.RowMajor.ColumnMajor</param.RowMajor>
       <param.HighlightPotentialRowMajorIssues>true</param.HighlightPotentialRowMajorIssues>
       <param.PreserveArrayDimensions>false</param.PreserveArrayDimensions>
@@ -25,8 +26,11 @@
       <param.FilePartitionMethod>option.FilePartitionMethod.MapMFileToCFile</param.FilePartitionMethod>
       <param.GenerateComments>true</param.GenerateComments>
       <param.MATLABSourceComments>false</param.MATLABSourceComments>
+      <param.CodeFormattingTool>option.CodeFormattingTool.Auto</param.CodeFormattingTool>
       <param.ReservedNameArray />
+      <param.CppStyleConst>false</param.CppStyleConst>
       <param.EnableDebugging>false</param.EnableDebugging>
+      <param.Verbosity>option.Verbosity.Info</param.Verbosity>
       <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
       <param.GenerateReport>true</param.GenerateReport>
       <param.LaunchReport>false</param.LaunchReport>
@@ -50,22 +54,26 @@
       <param.CompileTimeRecursionLimit>50</param.CompileTimeRecursionLimit>
       <param.EnableRuntimeRecursion>true</param.EnableRuntimeRecursion>
       <param.PreserveVariableNames>option.PreserveVariableNames.None</param.PreserveVariableNames>
-      <param.InlineUserFunctions>option.InlineUserFunctions.Speed</param.InlineUserFunctions>
-      <param.InlineMWFunctions>option.InlineMWFunctions.Speed</param.InlineMWFunctions>
-      <param.InlineMWFunctionsInUserFunctions>option.InlineMWFunctionsInUserFunctions.Speed</param.InlineMWFunctionsInUserFunctions>
       <param.EchoExpressions>true</param.EchoExpressions>
       <param.InlineThreshold>10</param.InlineThreshold>
       <param.InlineThresholdMax>200</param.InlineThresholdMax>
-      <param.InlineStackLimit>4000</param.InlineStackLimit>
+      <param.InlineStackLimit>1000000</param.InlineStackLimit>
+      <param.InlineBetweenUserFunctions>option.InlineBetweenUserFunctions.Speed</param.InlineBetweenUserFunctions>
+      <param.InlineBetweenUserAndMathWorksFunctions>option.InlineBetweenUserAndMathWorksFunctions.Speed</param.InlineBetweenUserAndMathWorksFunctions>
+      <param.InlineBetweenMathWorksFunctions>option.InlineBetweenMathWorksFunctions.Speed</param.InlineBetweenMathWorksFunctions>
       <param.EnableMemcpy>true</param.EnableMemcpy>
       <param.MemcpyThreshold>64</param.MemcpyThreshold>
       <param.EnableOpenMP>true</param.EnableOpenMP>
       <param.InitFltsAndDblsToZero>true</param.InitFltsAndDblsToZero>
       <param.ConstantInputs>option.ConstantInputs.CheckValues</param.ConstantInputs>
       <param.EnableCRICodeCoverage>true</param.EnableCRICodeCoverage>
+      <param.EnableAutoParallelizationReporting>true</param.EnableAutoParallelizationReporting>
       <param.EnableJIT>false</param.EnableJIT>
-      <param.EnableJITSilentBailOut />
+      <param.EnableJITSilentBailOut>false</param.EnableJITSilentBailOut>
       <param.CheckForIssuesJIT>true</param.CheckForIssuesJIT>
+      <param.EnableGitSupport>false</param.EnableGitSupport>
+      <param.EnableAutoCommit>false</param.EnableAutoCommit>
+      <param.RepositoryStyle>option.RepositoryStyle.Auto</param.RepositoryStyle>
       <unset>
         <param.BuiltInstrumentedMex />
         <param.RanInstrumentedMex />
@@ -78,6 +86,7 @@
         <param.ExtrinsicCalls />
         <param.IntegrityChecks />
         <param.SaturateOnIntegerOverflow />
+        <param.EnableAutoParallelization />
         <param.GlobalDataSyncMethod />
         <param.EnableVariableSizing />
         <param.DynamicMemoryAllocation />
@@ -91,8 +100,11 @@
         <param.FilePartitionMethod />
         <param.GenerateComments />
         <param.MATLABSourceComments />
+        <param.CodeFormattingTool />
         <param.ReservedNameArray />
+        <param.CppStyleConst />
         <param.EnableDebugging />
+        <param.Verbosity />
         <param.ReportPotentialDifferences />
         <param.GenerateReport />
         <param.LaunchReport />
@@ -115,26 +127,29 @@
         <param.CompileTimeRecursionLimit />
         <param.EnableRuntimeRecursion />
         <param.PreserveVariableNames />
-        <param.InlineUserFunctions />
-        <param.InlineMWFunctions />
-        <param.InlineMWFunctionsInUserFunctions />
         <param.EchoExpressions />
         <param.InlineThreshold />
         <param.InlineThresholdMax />
         <param.InlineStackLimit />
+        <param.InlineBetweenUserFunctions />
+        <param.InlineBetweenUserAndMathWorksFunctions />
+        <param.InlineBetweenMathWorksFunctions />
         <param.EnableMemcpy />
         <param.MemcpyThreshold />
         <param.EnableOpenMP />
         <param.InitFltsAndDblsToZero />
         <param.ConstantInputs />
         <param.EnableCRICodeCoverage />
+        <param.EnableAutoParallelizationReporting />
         <param.EnableJIT />
         <param.EnableJITSilentBailOut />
         <param.CheckForIssuesJIT />
+        <param.EnableGitSupport />
+        <param.EnableAutoCommit />
+        <param.RepositoryStyle />
       </unset>
     </profile>
     <profile key="profile.c">
-      <param.grt.GenCodeOnly>true</param.grt.GenCodeOnly>
       <param.WorkingFolder>option.WorkingFolder.Project</param.WorkingFolder>
       <param.SpecifiedWorkingFolder />
       <param.BuildFolder>option.BuildFolder.Project</param.BuildFolder>
@@ -144,13 +159,14 @@
       <param.PurelyIntegerCode>false</param.PurelyIntegerCode>
       <param.SupportNonFinite>true</param.SupportNonFinite>
       <param.LoopUnrollThreshold>5</param.LoopUnrollThreshold>
+      <param.EnableAutoParallelization>false</param.EnableAutoParallelization>
       <param.EnableVariableSizing>true</param.EnableVariableSizing>
       <param.DynamicMemoryAllocation>option.DynamicMemoryAllocation.Threshold</param.DynamicMemoryAllocation>
       <param.DynamicMemoryAllocationThreshold>65536</param.DynamicMemoryAllocationThreshold>
-      <param.DynamicMemoryAllocationInterface>option.DynamicMemoryAllocationInterface.CPP</param.DynamicMemoryAllocationInterface>
+      <param.DynamicMemoryAllocationInterface>option.DynamicMemoryAllocationInterface.AUTO</param.DynamicMemoryAllocationInterface>
       <param.RowMajor>option.RowMajor.ColumnMajor</param.RowMajor>
       <param.HighlightPotentialRowMajorIssues>true</param.HighlightPotentialRowMajorIssues>
-      <param.PreserveArrayDimensions>true</param.PreserveArrayDimensions>
+      <param.PreserveArrayDimensions>false</param.PreserveArrayDimensions>
       <param.EliminateSingleDimensions>false</param.EliminateSingleDimensions>
       <param.StackUsageMax>200000</param.StackUsageMax>
       <param.MultiInstanceCode>false</param.MultiInstanceCode>
@@ -164,8 +180,10 @@
       <param.EnableSignedLeftShifts>true</param.EnableSignedLeftShifts>
       <param.EnableSignedRightShifts>true</param.EnableSignedRightShifts>
       <param.ParenthesesLevel>option.ParenthesesLevel.Nominal</param.ParenthesesLevel>
-      <param.MaxIdLength>31</param.MaxIdLength>
+      <param.MaxIdLength>1024</param.MaxIdLength>
       <param.HeaderGuardStyle>option.HeaderGuardStyle.UseIncludeGuard</param.HeaderGuardStyle>
+      <param.CodeFormattingTool>option.CodeFormattingTool.Auto</param.CodeFormattingTool>
+      <param.ClangFormatFile>option.ClangFormatFile.Generate</param.ClangFormatFile>
       <param.DataTypeReplacement>option.DataTypeReplacement.CBuiltIn</param.DataTypeReplacement>
       <param.EnableCustomReplacementTypes>false</param.EnableCustomReplacementTypes>
       <param.ReplacementTypes.double />
@@ -184,7 +202,6 @@
       <param.ReplacementTypes.HeaderFiles />
       <param.CppInterfaceStyle>option.CppInterfaceStyle.Functions</param.CppInterfaceStyle>
       <param.CppInterfaceClassName />
-      <param.CppPreserveClasses>true</param.CppPreserveClasses>
       <param.CustomFileNameStr>$N$M</param.CustomFileNameStr>
       <param.CustomSymbolStrGlobalVar>$M$N</param.CustomSymbolStrGlobalVar>
       <param.CustomSymbolStrType>$M$N</param.CustomSymbolStrType>
@@ -195,8 +212,10 @@
       <param.CustomSymbolStrEMXArray>emxArray_$M$N</param.CustomSymbolStrEMXArray>
       <param.CustomSymbolStrEMXArrayFcn>emx$M$N</param.CustomSymbolStrEMXArrayFcn>
       <param.ReservedNameArray />
+      <param.CppStyleConst>false</param.CppStyleConst>
       <param.RuntimeChecks>false</param.RuntimeChecks>
-      <param.Verbose>true</param.Verbose>
+      <param.Verbose>false</param.Verbose>
+      <param.Verbosity>option.Verbosity.Info</param.Verbosity>
       <param.ReportPotentialDifferences>false</param.ReportPotentialDifferences>
       <param.GenerateReport>true</param.GenerateReport>
       <param.GenerateCodeMetricsReport>false</param.GenerateCodeMetricsReport>
@@ -227,7 +246,7 @@
       <param.DeprecatedCRLFlag>false</param.DeprecatedCRLFlag>
       <param.SameHardware>true</param.SameHardware>
       <param.Toolchain>Automatically locate an installed toolchain</param.Toolchain>
-      <param.BuildConfiguration>Faster Runs</param.BuildConfiguration>
+      <param.BuildConfiguration>Faster Builds</param.BuildConfiguration>
       <param.CustomToolchainOptions />
       <var.ToolchainSettingsVisible>true</var.ToolchainSettingsVisible>
       <param.target.Data>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;ctdata&gt;&lt;configuredHardware/&gt;&lt;/ctdata&gt;</param.target.Data>
@@ -280,23 +299,24 @@
       <param.IndentStyle>option.IndentStyle.K&amp;R</param.IndentStyle>
       <param.IndentSize>2</param.IndentSize>
       <param.ColumnLimit>80</param.ColumnLimit>
+      <param.grt.GenCodeOnly>true</param.grt.GenCodeOnly>
       <param.ConstantFoldingTimeout>40000</param.ConstantFoldingTimeout>
       <param.CompileTimeRecursionLimit>50</param.CompileTimeRecursionLimit>
       <param.EnableRuntimeRecursion>true</param.EnableRuntimeRecursion>
       <param.RunInitializeFcn>true</param.RunInitializeFcn>
-      <param.IncludeInitializeFcn>false</param.IncludeInitializeFcn>
-      <param.IncludeTerminateFcn>false</param.IncludeTerminateFcn>
+      <param.IncludeInitializeFcn>true</param.IncludeInitializeFcn>
+      <param.IncludeTerminateFcn>true</param.IncludeTerminateFcn>
       <param.GenerateExampleMain>option.GenerateExampleMain.GenerateCodeOnly</param.GenerateExampleMain>
-      <param.PreserveVariableNames>option.PreserveVariableNames.None</param.PreserveVariableNames>
-      <param.InlineUserFunctions>option.InlineUserFunctions.Speed</param.InlineUserFunctions>
-      <param.InlineMWFunctions>option.InlineMWFunctions.Speed</param.InlineMWFunctions>
-      <param.InlineMWFunctionsInUserFunctions>option.InlineMWFunctionsInUserFunctions.Speed</param.InlineMWFunctionsInUserFunctions>
+      <param.PreserveVariableNames>option.PreserveVariableNames.UserNames</param.PreserveVariableNames>
       <param.GenerateMakefile>true</param.GenerateMakefile>
       <param.BuildToolEnable>false</param.BuildToolEnable>
       <param.BuildToolConfiguration />
       <param.InlineThreshold>10</param.InlineThreshold>
       <param.InlineThresholdMax>200</param.InlineThresholdMax>
-      <param.InlineStackLimit>4000</param.InlineStackLimit>
+      <param.InlineStackLimit>1000000</param.InlineStackLimit>
+      <param.InlineBetweenUserFunctions>option.InlineBetweenUserFunctions.Readability</param.InlineBetweenUserFunctions>
+      <param.InlineBetweenUserAndMathWorksFunctions>option.InlineBetweenUserAndMathWorksFunctions.Readability</param.InlineBetweenUserAndMathWorksFunctions>
+      <param.InlineBetweenMathWorksFunctions>option.InlineBetweenMathWorksFunctions.Readability</param.InlineBetweenMathWorksFunctions>
       <param.EnableStrengthReduction>false</param.EnableStrengthReduction>
       <param.EnableMemcpy>true</param.EnableMemcpy>
       <param.MemcpyThreshold>64</param.MemcpyThreshold>
@@ -307,9 +327,13 @@
       <param.CustomLAPACKCallback />
       <param.CustomFFTCallback />
       <param.CustomBLASCallback />
+      <param.EnableAutoParallelizationReporting>true</param.EnableAutoParallelizationReporting>
       <param.GenerateDefaultInSwitch>false</param.GenerateDefaultInSwitch>
       <param.EnableTraceability>true</param.EnableTraceability>
-      <param.UseECoderFeatures>true</param.UseECoderFeatures>
+      <param.UseECoderFeatures>false</param.UseECoderFeatures>
+      <param.EnableGitSupport>false</param.EnableGitSupport>
+      <param.EnableAutoCommit>false</param.EnableAutoCommit>
+      <param.RepositoryStyle>option.RepositoryStyle.Auto</param.RepositoryStyle>
       <param.psCustomPrjState>false</param.psCustomPrjState>
       <param.psCustomProjectFile />
       <param.psCheckConfValue>option.psCheckConfValue.onWarnCheckConfDlg</param.psCheckConfValue>
@@ -328,12 +352,14 @@
         <param.PurelyIntegerCode />
         <param.SupportNonFinite />
         <param.LoopUnrollThreshold />
+        <param.EnableAutoParallelization />
         <param.EnableVariableSizing />
         <param.DynamicMemoryAllocation />
         <param.DynamicMemoryAllocationThreshold />
         <param.DynamicMemoryAllocationInterface />
         <param.RowMajor />
         <param.HighlightPotentialRowMajorIssues />
+        <param.PreserveArrayDimensions />
         <param.EliminateSingleDimensions />
         <param.StackUsageMax />
         <param.MultiInstanceCode />
@@ -349,6 +375,8 @@
         <param.ParenthesesLevel />
         <param.MaxIdLength />
         <param.HeaderGuardStyle />
+        <param.CodeFormattingTool />
+        <param.ClangFormatFile />
         <param.DataTypeReplacement />
         <param.EnableCustomReplacementTypes />
         <param.ReplacementTypes.double />
@@ -367,7 +395,6 @@
         <param.ReplacementTypes.HeaderFiles />
         <param.CppInterfaceStyle />
         <param.CppInterfaceClassName />
-        <param.CppPreserveClasses />
         <param.CustomFileNameStr />
         <param.CustomSymbolStrGlobalVar />
         <param.CustomSymbolStrType />
@@ -378,7 +405,10 @@
         <param.CustomSymbolStrEMXArray />
         <param.CustomSymbolStrEMXArrayFcn />
         <param.ReservedNameArray />
+        <param.CppStyleConst />
         <param.RuntimeChecks />
+        <param.Verbose />
+        <param.Verbosity />
         <param.ReportPotentialDifferences />
         <param.GenerateReport />
         <param.GenerateCodeMetricsReport />
@@ -408,7 +438,6 @@
         <param.DeprecatedCRLFlag />
         <param.SameHardware />
         <param.Toolchain />
-        <param.BuildConfiguration />
         <param.CustomToolchainOptions />
         <var.ToolchainSettingsVisible />
         <param.target.ActiveType />
@@ -448,11 +477,9 @@
         <param.CompileTimeRecursionLimit />
         <param.EnableRuntimeRecursion />
         <param.RunInitializeFcn />
+        <param.IncludeInitializeFcn />
+        <param.IncludeTerminateFcn />
         <param.GenerateExampleMain />
-        <param.PreserveVariableNames />
-        <param.InlineUserFunctions />
-        <param.InlineMWFunctions />
-        <param.InlineMWFunctionsInUserFunctions />
         <param.GenerateMakefile />
         <param.BuildToolEnable />
         <param.BuildToolConfiguration />
@@ -469,9 +496,13 @@
         <param.CustomLAPACKCallback />
         <param.CustomFFTCallback />
         <param.CustomBLASCallback />
+        <param.EnableAutoParallelizationReporting />
         <param.GenerateDefaultInSwitch />
         <param.EnableTraceability />
         <param.UseECoderFeatures />
+        <param.EnableGitSupport />
+        <param.EnableAutoCommit />
+        <param.RepositoryStyle />
         <param.psCustomPrjState />
         <param.psCustomProjectFile />
         <param.psCheckConfValue />
@@ -829,7 +860,7 @@
       </unset>
     </profile>
     <param.objective>option.objective.c</param.objective>
-    <param.WorkflowStep>generateCode</param.WorkflowStep>
+    <param.WorkflowStep>workflowSummary</param.WorkflowStep>
     <param.TestSnippets>
       <item>main</item>
     </param.TestSnippets>
@@ -837,8 +868,8 @@
     <param.UseGlobals>option.UseGlobals.No</param.UseGlobals>
     <param.outputfile>${PROJECT_ROOT}/codegen/lib/abeles_loop_new/abeles_loop_new.a</param.outputfile>
     <param.version>R2012a</param.version>
-    <param.HasECoderFeatures>true</param.HasECoderFeatures>
-    <param.HasGpuCoder>true</param.HasGpuCoder>
+    <param.HasECoderFeatures>false</param.HasECoderFeatures>
+    <param.HasGpuCoder>false</param.HasGpuCoder>
     <var.HasNeuralNetworkToolbox>true</var.HasNeuralNetworkToolbox>
     <param.mex.mainhtml />
     <param.grt.mainhtml />
@@ -850,7 +881,7 @@
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
     <param.EnableScreener>true</param.EnableScreener>
-    <param.AnnotationChecksum>2251508829</param.AnnotationChecksum>
+    <param.AnnotationChecksum>1849181457</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
@@ -859,13 +890,13 @@
     <param.unifiedParamStorage />
     <var.gc.lastOutputRoot>codegen/lib/abeles_loop_new</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>4000334585</var.gc.preBuildChecksum>
+    <var.gc.preBuildChecksum>622466557</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot>codegen/mex/abeles_loop_new</var.cfi.lastOutputRoot>
-    <var.cfi.preBuildChecksum>1025484733</var.cfi.preBuildChecksum>
+    <var.cfi.preBuildChecksum>221039176</var.cfi.preBuildChecksum>
     <var.lastCfiTestSnippet>main</var.lastCfiTestSnippet>
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/abeles.m&lt;/file&gt;&lt;file&gt;/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/abeles_loop_new.m&lt;/file&gt;&lt;file&gt;/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/resolution_polly.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;3902887006&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
-    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/abeles.m&lt;/file&gt;&lt;file&gt;/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/abeles_loop_new.m&lt;/file&gt;&lt;file&gt;/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/resolution_polly.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/abeles_loop_new.m&lt;/file&gt;&lt;file&gt;/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/abeles_single.m&lt;/file&gt;&lt;file&gt;/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/resolution_polly.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;4055067787&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/abeles_loop_new.m&lt;/file&gt;&lt;file&gt;/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/abeles_single.m&lt;/file&gt;&lt;file&gt;/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/resolution_polly.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
     <param.configImportActive>false</param.configImportActive>
@@ -873,44 +904,51 @@
     <var.notGpuCoder>true</var.notGpuCoder>
     <var.boundToGui>true</var.boundToGui>
     <var.isConfigDialog>false</var.isConfigDialog>
-    <var.ecoderEnabled>true</var.ecoderEnabled>
+    <var.ecoderEnabled>false</var.ecoderEnabled>
     <param.mex.outputfile>abeles_loop_new_mex</param.mex.outputfile>
     <param.grt.outputfile>abeles_loop_new</param.grt.outputfile>
     <param.artifact>option.target.artifact.lib</param.artifact>
     <param.outputfile>${PROJECT_ROOT}/codegen/lib/abeles_loop_new/abeles_loop_new.a</param.outputfile>
     <param.CppNamespace />
+    <param.CppPackagesToNamespaces>true</param.CppPackagesToNamespaces>
+    <param.CppNamespaceForMathworksCode>coder</param.CppNamespaceForMathworksCode>
+    <param.CppPreserveClasses>true</param.CppPreserveClasses>
     <param.gpu.Enabled>false</param.gpu.Enabled>
-    <param.gpu.KernelNamePrefix />
     <param.gpu.SelectCudaDevice>-1</param.gpu.SelectCudaDevice>
-    <param.gpu.MaxKernelDepth>0</param.gpu.MaxKernelDepth>
-    <param.gpu.MallocMode>discrete</param.gpu.MallocMode>
+    <param.gpu.ComputeCapability />
+    <param.gpu.CustomComputeCapability />
+    <param.gpu.MallocMode />
     <param.gpu.MallocThreshold>200</param.gpu.MallocThreshold>
     <param.gpu.StackLimitPerThread>1024</param.gpu.StackLimitPerThread>
-    <param.gpu.EnableCUBLAS>true</param.gpu.EnableCUBLAS>
-    <param.gpu.EnableCUSOLVER>true</param.gpu.EnableCUSOLVER>
-    <param.gpu.EnableCUFFT>true</param.gpu.EnableCUFFT>
+    <param.gpu.MaximumBlocksPerKernel>0</param.gpu.MaximumBlocksPerKernel>
     <param.gpu.Benchmarking>false</param.gpu.Benchmarking>
     <param.gpu.SafeBuild>false</param.gpu.SafeBuild>
-    <param.gpu.ComputeCapability>3.5</param.gpu.ComputeCapability>
-    <param.gpu.CustomComputeCapability />
+    <param.gpu.KernelNamePrefix />
     <param.gpu.CompilerFlags />
+    <param.gpu.EnableCUBLAS>false</param.gpu.EnableCUBLAS>
+    <param.gpu.EnableCUSOLVER>false</param.gpu.EnableCUSOLVER>
+    <param.gpu.EnableCUFFT>false</param.gpu.EnableCUFFT>
     <var.checkIssuesGpu>false</var.checkIssuesGpu>
-    <var.hasGpu>true</var.hasGpu>
+    <var.hasGpu>false</var.hasGpu>
     <var.isDeepLearningForMatlabCoderEnabled>true</var.isDeepLearningForMatlabCoderEnabled>
+    <param.deeplearning.EnableDeepLearning>false</param.deeplearning.EnableDeepLearning>
     <param.deeplearning.TargetLib>option.deeplearning.targetlibrary.none</param.deeplearning.TargetLib>
     <var.cfiTargetLibSuppression>false</var.cfiTargetLibSuppression>
     <var.hasMatlabDeepLearningSupportPackage>true</var.hasMatlabDeepLearningSupportPackage>
     <var.hasGpuDeepLearningSupportPackage>true</var.hasGpuDeepLearningSupportPackage>
     <param.tensorrt.DataType>option.tensorrt.datatype.fp32</param.tensorrt.DataType>
     <param.tensorrt.DataPath />
-    <param.tensorrt.NumCalibrationBatches>1</param.tensorrt.NumCalibrationBatches>
+    <param.tensorrt.NumCalibrationBatches>0</param.tensorrt.NumCalibrationBatches>
     <param.cudnn.AutoTuning>true</param.cudnn.AutoTuning>
     <param.cudnn.DataType>option.cudnn.datatype.fp32</param.cudnn.DataType>
     <param.cudnn.CalibrationResultFile />
-    <param.arm-compute.ArmComputeVersion>option.arm-compute.version.19_05</param.arm-compute.ArmComputeVersion>
+    <param.arm-compute.ArmComputeVersion>option.arm-compute.version.20_02_1</param.arm-compute.ArmComputeVersion>
     <param.arm-compute.ArmArchitecture>option.arm-compute.architecture.unspecified</param.arm-compute.ArmArchitecture>
+    <param.arm-compute.DataType>option.arm-compute.datatype.fp32</param.arm-compute.DataType>
+    <param.arm-compute.CalibrationResultFile />
     <param.TargetLang>option.TargetLang.CPP</param.TargetLang>
     <param.EnableAutoExtrinsicCalls>true</param.EnableAutoExtrinsicCalls>
+    <param.EnableImplicitExpansion>false</param.EnableImplicitExpansion>
     <param.UsePreconditions>false</param.UsePreconditions>
     <param.FeatureFlags />
     <param.FixedPointMode>option.FixedPointMode.None</param.FixedPointMode>
@@ -992,24 +1030,28 @@
       <param.mex.outputfile />
       <param.grt.outputfile />
       <param.CppNamespace />
+      <param.CppPackagesToNamespaces />
+      <param.CppNamespaceForMathworksCode />
+      <param.CppPreserveClasses />
       <param.gpu.Enabled />
-      <param.gpu.KernelNamePrefix />
       <param.gpu.SelectCudaDevice />
-      <param.gpu.MaxKernelDepth />
+      <param.gpu.ComputeCapability />
+      <param.gpu.CustomComputeCapability />
       <param.gpu.MallocMode />
       <param.gpu.MallocThreshold />
       <param.gpu.StackLimitPerThread />
+      <param.gpu.MaximumBlocksPerKernel />
+      <param.gpu.Benchmarking />
+      <param.gpu.SafeBuild />
+      <param.gpu.KernelNamePrefix />
+      <param.gpu.CompilerFlags />
       <param.gpu.EnableCUBLAS />
       <param.gpu.EnableCUSOLVER />
       <param.gpu.EnableCUFFT />
-      <param.gpu.Benchmarking />
-      <param.gpu.SafeBuild />
-      <param.gpu.ComputeCapability />
-      <param.gpu.CustomComputeCapability />
-      <param.gpu.CompilerFlags />
       <var.checkIssuesGpu />
       <var.hasGpu />
       <var.isDeepLearningForMatlabCoderEnabled />
+      <param.deeplearning.EnableDeepLearning />
       <param.deeplearning.TargetLib />
       <var.cfiTargetLibSuppression />
       <var.hasMatlabDeepLearningSupportPackage />
@@ -1022,7 +1064,10 @@
       <param.cudnn.CalibrationResultFile />
       <param.arm-compute.ArmComputeVersion />
       <param.arm-compute.ArmArchitecture />
+      <param.arm-compute.DataType />
+      <param.arm-compute.CalibrationResultFile />
       <param.EnableAutoExtrinsicCalls />
+      <param.EnableImplicitExpansion />
       <param.UsePreconditions />
       <param.FeatureFlags />
       <param.FixedPointMode />
@@ -1070,7 +1115,7 @@
     </unset>
     <fileset.entrypoints>
       <file custom-data-expanded="false" value="${PROJECT_ROOT}/abeles_loop_new.m">
-        <Marker>1634976397492</Marker>
+        <Marker>1636624549666</Marker>
       </file>
     </fileset.entrypoints>
     <fileset.testbench>
@@ -1085,15 +1130,15 @@
           <Input Name="slds" typeId="0">
             <Field Name="{:}" typeId="2" />
           </Input>
-          <Input Name="nbairs" typeId="3" />
-          <Input Name="nbsubs" typeId="3" />
-          <Input Name="repeats" typeId="3" />
-          <Input Name="resolutions" typeId="3" />
-          <Input Name="ssubs" typeId="3" />
+          <Input Name="nbairs" typeId="1" />
+          <Input Name="nbsubs" typeId="1" />
+          <Input Name="repeats" typeId="1" />
+          <Input Name="resolutions" typeId="1" />
+          <Input Name="ssubs" typeId="1" />
           <idpTable>
             <type typeId="0">
               <Class>cell</Class>
-              <Size>1 x :inf</Size>
+              <Size>:inf x 1</Size>
               <Value />
               <InitialValue />
               <UserDefined>true</UserDefined>
@@ -1117,45 +1162,24 @@
               <Complex>false</Complex>
               <Sparse>false</Sparse>
             </type>
-            <type typeId="3">
-              <Class>double</Class>
-              <Size>1 x :inf</Size>
-              <Value />
-              <InitialValue />
-              <UserDefined>true</UserDefined>
-              <Complex>false</Complex>
-              <Sparse>false</Sparse>
-            </type>
           </idpTable>
         </Inputs>
       </file>
     </fileset.inputtypes>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}/codegen/lib/abeles_loop_new" name="abeles_loop_new.a" optional="false">/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/codegen/lib/abeles_loop_new/abeles_loop_new.a</file>
+      <file location="${PROJECT_ROOT}/codegen/lib/abeles_loop_new" name="abeles_loop_new.a" optional="false">/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/lib/abeles_loop_new/abeles_loop_new.a</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/usr/local/MATLAB/R2020a</root>
+      <root>/Applications/MATLAB_R2021a.app</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
-        <toolbox name="embeddedcoder" />
-        <toolbox name="gpucoder" />
         <toolbox name="neuralnetwork" />
       </toolboxes>
       <toolbox>
         <matlabcoder>
           <enabled>true</enabled>
         </matlabcoder>
-      </toolbox>
-      <toolbox>
-        <embeddedcoder>
-          <enabled>true</enabled>
-        </embeddedcoder>
-      </toolbox>
-      <toolbox>
-        <gpucoder>
-          <enabled>true</enabled>
-        </gpucoder>
       </toolbox>
       <toolbox>
         <neuralnetwork>
@@ -1165,17 +1189,17 @@
     </matlab>
     <platform>
       <unix>true</unix>
-      <mac>false</mac>
+      <mac>true</mac>
       <windows>false</windows>
       <win2k>false</win2k>
       <winxp>false</winxp>
       <vista>false</vista>
-      <linux>true</linux>
+      <linux>false</linux>
       <solaris>false</solaris>
-      <osver>3.10.0-693.21.1.el7.x86_64</osver>
+      <osver>10.16</osver>
       <os32>false</os32>
       <os64>true</os64>
-      <arch>glnxa64</arch>
+      <arch>maci64</arch>
       <matlab>true</matlab>
     </platform>
   </configuration>

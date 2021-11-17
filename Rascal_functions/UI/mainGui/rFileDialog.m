@@ -12,7 +12,7 @@ openFileWindow.setTitle('Open File');
 openFileWindow.setMaximizable(false);
 openFileWindow.setIconifiable(true);
 openFileWindow.setClosable(false);
-openFileWindow.setResizable(false);
+openFileWindow.setResizable(true);
 setappdata(0,'FileDialogContainer',openFileWindow);
 
 chooser = javaObjectEDT(JFileChooser(pwd));

@@ -4,6 +4,7 @@ addpath(rascalPath);
 
 % Add the function folders
 rascalPaths = {fullfile('Rascal_functions','') ;
+    fullfile('Rascal_functions','abeles_loop_coder','');
     fullfile('Rascal_functions','UI','editGui','');
     fullfile('Rascal_functions','UI','mainGui','');    
     fullfile('Rascal_functions','UI','bayesGui','');

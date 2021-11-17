@@ -2,58 +2,24 @@
 // Non-Degree Granting Education License -- for use at non-degree
 // granting, nonprofit, educational organizations only. Not for
 // government, commercial, or other organizational use.
-// File: sqrt.cpp
 //
-// MATLAB Coder version            : 5.0
-// C/C++ source code generated on  : 23-Oct-2021 10:24:46
+// sqrt.cpp
+//
+// Code generation for function 'sqrt'
 //
 
-// Include Files
+// Include files
 #include "sqrt.h"
-#include "abeles_loop_new.h"
+#include "abeles_loop_new_rtwutil.h"
 #include <cmath>
 
-// Function Declarations
-static double rt_hypotd_snf(double u0, double u1);
-
 // Function Definitions
-
-//
-// Arguments    : double u0
-//                double u1
-// Return Type  : double
-//
-static double rt_hypotd_snf(double u0, double u1)
-{
-  double y;
-  double a;
-  a = std::abs(u0);
-  y = std::abs(u1);
-  if (a < y) {
-    a /= y;
-    y *= std::sqrt(a * a + 1.0);
-  } else if (a > y) {
-    y /= a;
-    y = a * std::sqrt(y * y + 1.0);
-  } else {
-    if (!std::isnan(y)) {
-      y = a * 1.4142135623730951;
-    }
-  }
-
-  return y;
-}
-
-//
-// Arguments    : creal_T *x
-// Return Type  : void
-//
+namespace coder {
 void b_sqrt(creal_T *x)
 {
-  double xr;
-  double xi;
   double absxi;
-  double absxr;
+  double xi;
+  double xr;
   xr = x->re;
   xi = x->im;
   if (xi == 0.0) {
@@ -89,10 +55,11 @@ void b_sqrt(creal_T *x)
       xr = 0.0;
     }
   } else {
+    double absxr;
     absxr = std::abs(xr);
     absxi = std::abs(xi);
-    if ((absxr > 4.4942328371557893E+307) || (absxi > 4.4942328371557893E+307))
-    {
+    if ((absxr > 4.4942328371557893E+307) ||
+        (absxi > 4.4942328371557893E+307)) {
       absxr *= 0.5;
       absxi = rt_hypotd_snf(absxr, absxi * 0.5);
       if (absxi > absxr) {
@@ -103,7 +70,6 @@ void b_sqrt(creal_T *x)
     } else {
       absxi = std::sqrt((rt_hypotd_snf(absxr, absxi) + absxr) * 0.5);
     }
-
     if (xr > 0.0) {
       xr = 0.5 * (xi / absxi);
     } else {
@@ -112,17 +78,13 @@ void b_sqrt(creal_T *x)
       } else {
         xr = absxi;
       }
-
       absxi = 0.5 * (xi / xr);
     }
   }
-
   x->re = absxi;
   x->im = xr;
 }
 
-//
-// File trailer for sqrt.cpp
-//
-// [EOF]
-//
+} // namespace coder
+
+// End of code generation (sqrt.cpp)

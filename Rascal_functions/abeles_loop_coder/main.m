@@ -1,14 +1,14 @@
 
-abelesInputs = load('abelesInputs.mat');
-abelesInputs = abelesInputs.abelesInputs;
+abelesInputs = load('abelesLoopInputs.mat');
+abelesInputs = abelesInputs.abelesLoopInputs;
 
-simXdata = abelesInputs.simXdata;
-slds = abelesInputs.slds;
-nbairs = abelesInputs.nbairs;
-nbsubs = abelesInputs.nbsubs;
-repeats = abelesInputs.repeats;
-resolutions = abelesInputs.resolutions;
-ssubs = abelesInputs.ssubs;
+simXdata = abelesInputs{1};
+slds = abelesInputs{2};
+nbairs = abelesInputs{3};
+nbsubs = abelesInputs{4};
+repeats = abelesInputs{5};
+resolutions = abelesInputs{6};
+ssubs = abelesInputs{7};
 
 simRef = abeles_loop_new(simXdata,slds,nbairs,nbsubs,repeats,resolutions,ssubs);
 

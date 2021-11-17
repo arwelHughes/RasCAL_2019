@@ -1,21 +1,24 @@
-MEX {
-	global:
-		mexFunction;
-		mexfilerequiredapiversion;
-		emlrtMexFcnProperties;
-		abeles_loop_new_initialize;
-		abeles_loop_new_terminate;
-		abeles_loop_new_atexit;
-		abeles_loop_new;
-		emxFree_real_T;
-		emxInit_real_T;
-		emxEnsureCapacity_cell_wrap_0;
-		emxEnsureCapacity_real_T;
-		emxInit_cell_wrap_0;
-		emxFree_cell_wrap_0;
-		emxInit_cell_wrap_1;
-		emxFree_cell_wrap_1;
-		emxEnsureCapacity_cell_wrap_1;
-	local:
-		*;
-};
+_mexFunction
+_mexfilerequiredapiversion
+_emlrtMexFcnProperties
+_abeles_loop_new
+_abeles_loop_new_initialize
+_abeles_loop_new_terminate
+_abeles_loop_new_atexit
+_emxFree_cell_wrap_1
+_emxFree_cell_wrap_0
+_emxInit_cell_wrap_0
+_emxInit_cell_wrap_1
+_emxEnsureCapacity_cell_wrap_0
+_emxTrim_cell_wrap_0
+_emxFreeStruct_cell_wrap_0
+_emxExpand_cell_wrap_0
+_emxInitStruct_cell_wrap_0
+_emxEnsureCapacity_cell_wrap_1
+_emxTrim_cell_wrap_1
+_emxFreeStruct_cell_wrap_1
+_emxFree_real_T
+_emxExpand_cell_wrap_1
+_emxInitStruct_cell_wrap_1
+_emxInit_real_T
+_emxEnsureCapacity_real_T

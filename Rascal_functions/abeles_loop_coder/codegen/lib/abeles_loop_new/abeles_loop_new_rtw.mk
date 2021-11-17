@@ -1,12 +1,8 @@
 ###########################################################################
-## Makefile generated for MATLAB file/project 'abeles_loop_new'. 
+## Makefile generated for component 'abeles_loop_new'. 
 ## 
 ## Makefile     : abeles_loop_new_rtw.mk
-## Generated on : Sat Oct 23 10:20:25 2021
-## MATLAB Coder version: 5.0 (R2020a)
-## 
-## Build Info:
-## 
+## Generated on : Thu Nov 11 09:59:49 2021
 ## Final product: ./abeles_loop_new.a
 ## Product type : static-library
 ## 
@@ -23,27 +19,26 @@
 
 PRODUCT_NAME              = abeles_loop_new
 MAKEFILE                  = abeles_loop_new_rtw.mk
-MATLAB_ROOT               = /usr/local/MATLAB/R2020a
-MATLAB_BIN                = /usr/local/MATLAB/R2020a/bin
-MATLAB_ARCH_BIN           = $(MATLAB_BIN)/glnxa64
-MASTER_ANCHOR_DIR         = 
-START_DIR                 = /home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/codegen/lib/abeles_loop_new
+MATLAB_ROOT               = /Applications/MATLAB_R2021a.app
+MATLAB_BIN                = /Applications/MATLAB_R2021a.app/bin
+MATLAB_ARCH_BIN           = $(MATLAB_BIN)/maci64
+START_DIR                 = /Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/codegen/lib/abeles_loop_new
 TGT_FCN_LIB               = ISO_C++11
 SOLVER_OBJ                = 
 CLASSIC_INTERFACE         = 0
 MODEL_HAS_DYNAMICALLY_LOADED_SFCNS = 
 RELATIVE_PATH_TO_ANCHOR   = .
-C_STANDARD_OPTS           = -fwrapv -ansi -pedantic -Wno-long-long
-CPP_STANDARD_OPTS         = -fwrapv -std=c++11 -pedantic
+C_STANDARD_OPTS           = -fno-common -fexceptions
+CPP_STANDARD_OPTS         = -std=c++14 -fno-common -fexceptions
 MODELLIB                  = abeles_loop_new.a
 
 ###########################################################################
 ## TOOLCHAIN SPECIFICATIONS
 ###########################################################################
 
-# Toolchain Name:          GNU gcc/g++ | gmake (64-bit Linux)
-# Supported Version(s):    
-# ToolchainInfo Version:   2020a
+# Toolchain Name:          Clang v3.1 | gmake (64-bit Mac)
+# Supported Version(s):    3.1
+# ToolchainInfo Version:   2021a
 # Specification Revision:  1.0
 # 
 #-------------------------------------------
@@ -57,10 +52,11 @@ MODELLIB                  = abeles_loop_new.a
 # MACROS
 #-----------
 
-WARN_FLAGS         = -Wall -W -Wwrite-strings -Winline -Wstrict-prototypes -Wnested-externs -Wpointer-arith -Wcast-align
-WARN_FLAGS_MAX     = $(WARN_FLAGS) -Wcast-qual -Wshadow
-CPP_WARN_FLAGS     = -Wall -W -Wwrite-strings -Winline -Wpointer-arith -Wcast-align
-CPP_WARN_FLAGS_MAX = $(CPP_WARN_FLAGS) -Wcast-qual -Wshadow
+ARCHS             = x86_64
+XCODE_SDK_VER     = $(shell perl $(MATLAB_ROOT)/rtw/c/tools/macsdkver.pl)
+XCODE_SDK         = MacOSX$(XCODE_SDK_VER).sdk
+XCODE_DEVEL_DIR   = $(shell xcode-select -print-path)
+XCODE_SDK_ROOT    = $(XCODE_DEVEL_DIR)/Platforms/MacOSX.platform/Developer/SDKs/$(XCODE_SDK)
 
 TOOLCHAIN_SRCS = 
 TOOLCHAIN_INCS = 
@@ -70,20 +66,20 @@ TOOLCHAIN_LIBS =
 # BUILD TOOL COMMANDS
 #------------------------
 
-# C Compiler: GNU C Compiler
-CC = gcc
+# C Compiler: Clang C Compiler
+CC = xcrun clang
 
-# Linker: GNU Linker
-LD = g++
+# Linker: Clang Linker
+LD = xcrun clang++
 
-# C++ Compiler: GNU C++ Compiler
-CPP = g++
+# C++ Compiler: Clang C++ Compiler
+CPP = xcrun clang++
 
-# C++ Linker: GNU C++ Linker
-CPP_LD = g++
+# C++ Linker: Clang C++ Linker
+CPP_LD = xcrun clang++
 
-# Archiver: GNU Archiver
-AR = ar
+# Archiver: Clang Archiver
+AR = xcrun ar
 
 # MEX Tool: MEX Tool
 MEX_PATH = $(MATLAB_ARCH_BIN)
@@ -96,7 +92,7 @@ DOWNLOAD =
 EXECUTE = $(PRODUCT)
 
 # Builder: GMAKE Utility
-MAKE_PATH = %MATLAB%/bin/glnxa64
+MAKE_PATH = %MATLAB%/bin/maci64
 MAKE = "$(MAKE_PATH)/gmake"
 
 
@@ -120,26 +116,28 @@ ECHO                = @echo
 MV                  = @mv
 RUN                 =
 
-#--------------------------------------
-# "Faster Runs" Build Configuration
-#--------------------------------------
+#----------------------------------------
+# "Faster Builds" Build Configuration
+#----------------------------------------
 
 ARFLAGS              = ruvs
-CFLAGS               = -c $(C_STANDARD_OPTS) -fPIC \
-                       -O3 -fno-loop-optimize -fno-aggressive-loop-optimizations
-CPPFLAGS             = -c $(CPP_STANDARD_OPTS) -fPIC \
-                       -O3 -fno-loop-optimize -fno-aggressive-loop-optimizations
-CPP_LDFLAGS          = -Wl,-rpath,"$(MATLAB_ARCH_BIN)",-L"$(MATLAB_ARCH_BIN)"
-CPP_SHAREDLIB_LDFLAGS  = -shared -Wl,-rpath,"$(MATLAB_ARCH_BIN)",-L"$(MATLAB_ARCH_BIN)" -Wl,--no-undefined
+CFLAGS               = -c -isysroot $(XCODE_SDK_ROOT) -arch $(ARCHS) $(C_STANDARD_OPTS) -mmacosx-version-min=10.14 \
+                       -O0
+CPPFLAGS             = -c -isysroot $(XCODE_SDK_ROOT) -arch $(ARCHS) $(CPP_STANDARD_OPTS) -mmacosx-version-min=10.14 \
+                       -O0
+CPP_LDFLAGS          = -arch $(ARCHS) -isysroot $(XCODE_SDK_ROOT) -Wl,-rpath,$(MATLAB_ARCH_BIN) -Wl,-rpath,@executable_path -Wl,-rpath,@executable_path/$(RELATIVE_PATH_TO_ANCHOR)
+CPP_SHAREDLIB_LDFLAGS  = -dynamiclib -install_name @rpath/$(notdir $(PRODUCT)) -isysroot $(XCODE_SDK_ROOT) \
+                         -Wl,$(LD_NAMESPACE) $(LD_UNDEFS)
 DOWNLOAD_FLAGS       =
 EXECUTE_FLAGS        =
-LDFLAGS              = -Wl,-rpath,"$(MATLAB_ARCH_BIN)",-L"$(MATLAB_ARCH_BIN)"
+LDFLAGS              = -arch $(ARCHS) -isysroot $(XCODE_SDK_ROOT) -Wl,-rpath,$(MATLAB_ARCH_BIN) -Wl,-rpath,@executable_path -Wl,-rpath,@executable_path/$(RELATIVE_PATH_TO_ANCHOR)
 MEX_CPPFLAGS         =
 MEX_CPPLDFLAGS       =
 MEX_CFLAGS           =
 MEX_LDFLAGS          =
 MAKE_FLAGS           = -f $(MAKEFILE)
-SHAREDLIB_LDFLAGS    = -shared -Wl,-rpath,"$(MATLAB_ARCH_BIN)",-L"$(MATLAB_ARCH_BIN)" -Wl,--no-undefined
+SHAREDLIB_LDFLAGS    = -dynamiclib -install_name @rpath/$(notdir $(PRODUCT)) -isysroot $(XCODE_SDK_ROOT) \
+                       -Wl,$(LD_NAMESPACE) $(LD_UNDEFS)
 
 
 
@@ -155,7 +153,7 @@ BUILD_TYPE = "Static Library"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(START_DIR) -I/home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder -I$(MATLAB_ROOT)/extern/include
+INCLUDES_BUILDINFO = -I$(START_DIR) -I/Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder -I$(MATLAB_ROOT)/extern/include
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -172,7 +170,7 @@ DEFINES = $(DEFINES_CUSTOM) $(DEFINES_STANDARD)
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/abeles_loop_new.cpp $(START_DIR)/sqrt.cpp
+SRCS = $(START_DIR)/abeles_loop_new_data.cpp $(START_DIR)/abeles_loop_new_initialize.cpp $(START_DIR)/abeles_loop_new_terminate.cpp $(START_DIR)/abeles_loop_new.cpp $(START_DIR)/abeles_single.cpp $(START_DIR)/resolution_polly.cpp $(START_DIR)/sqrt.cpp $(START_DIR)/exp.cpp $(START_DIR)/abeles_loop_new_rtwutil.cpp
 
 ALL_SRCS = $(SRCS)
 
@@ -180,7 +178,7 @@ ALL_SRCS = $(SRCS)
 ## OBJECTS
 ###########################################################################
 
-OBJS = abeles_loop_new.o sqrt.o
+OBJS = abeles_loop_new_data.o abeles_loop_new_initialize.o abeles_loop_new_terminate.o abeles_loop_new.o abeles_single.o resolution_polly.o sqrt.o exp.o abeles_loop_new_rtwutil.o
 
 ALL_OBJS = $(OBJS)
 
@@ -295,11 +293,23 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.o : /home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/%.c
+%.o : /Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.o : /home/arwel/Desktop/Rascal2019/Sandbox/abeles_loop_coder/%.cpp
+%.o : /Users/arwel/Documents/coding/RasCAL_2019/Rascal_functions/abeles_loop_coder/%.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+abeles_loop_new_data.o : $(START_DIR)/abeles_loop_new_data.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+abeles_loop_new_initialize.o : $(START_DIR)/abeles_loop_new_initialize.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+abeles_loop_new_terminate.o : $(START_DIR)/abeles_loop_new_terminate.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
@@ -307,7 +317,23 @@ abeles_loop_new.o : $(START_DIR)/abeles_loop_new.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
+abeles_single.o : $(START_DIR)/abeles_single.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+resolution_polly.o : $(START_DIR)/resolution_polly.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
 sqrt.o : $(START_DIR)/sqrt.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+exp.o : $(START_DIR)/exp.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+abeles_loop_new_rtwutil.o : $(START_DIR)/abeles_loop_new_rtwutil.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 

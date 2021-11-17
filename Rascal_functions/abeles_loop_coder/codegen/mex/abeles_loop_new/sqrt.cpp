@@ -1,27 +1,25 @@
-/*
- * Non-Degree Granting Education License -- for use at non-degree
- * granting, nonprofit, educational organizations only. Not for
- * government, commercial, or other organizational use.
- *
- * sqrt.c
- *
- * Code generation for function 'sqrt'
- *
- */
+//
+// Non-Degree Granting Education License -- for use at non-degree
+// granting, nonprofit, educational organizations only. Not for
+// government, commercial, or other organizational use.
+//
+// sqrt.cpp
+//
+// Code generation for function 'sqrt'
+//
 
-/* Include files */
+// Include files
 #include "sqrt.h"
-#include "abeles_loop_new.h"
-#include "mwmathutil.h"
 #include "rt_nonfinite.h"
+#include "mwmathutil.h"
 
-/* Function Definitions */
+// Function Definitions
+namespace coder {
 void b_sqrt(creal_T *x)
 {
-  real_T xr;
-  real_T xi;
   real_T absxi;
-  real_T absxr;
+  real_T xi;
+  real_T xr;
   xr = x->re;
   xi = x->im;
   if (xi == 0.0) {
@@ -57,23 +55,23 @@ void b_sqrt(creal_T *x)
       xr = 0.0;
     }
   } else {
+    real_T absxr;
     absxr = muDoubleScalarAbs(xr);
     absxi = muDoubleScalarAbs(xi);
-    if ((absxr > 4.4942328371557893E+307) || (absxi > 4.4942328371557893E+307))
-    {
+    if ((absxr > 4.4942328371557893E+307) ||
+        (absxi > 4.4942328371557893E+307)) {
       absxr *= 0.5;
       absxi = muDoubleScalarHypot(absxr, absxi * 0.5);
       if (absxi > absxr) {
-        absxi = muDoubleScalarSqrt(absxi) * muDoubleScalarSqrt(absxr / absxi +
-          1.0);
+        absxi =
+            muDoubleScalarSqrt(absxi) * muDoubleScalarSqrt(absxr / absxi + 1.0);
       } else {
         absxi = muDoubleScalarSqrt(absxi) * 1.4142135623730951;
       }
     } else {
-      absxi = muDoubleScalarSqrt((muDoubleScalarHypot(absxr, absxi) + absxr) *
-        0.5);
+      absxi =
+          muDoubleScalarSqrt((muDoubleScalarHypot(absxr, absxi) + absxr) * 0.5);
     }
-
     if (xr > 0.0) {
       xr = 0.5 * (xi / absxi);
     } else {
@@ -82,13 +80,13 @@ void b_sqrt(creal_T *x)
       } else {
         xr = absxi;
       }
-
       absxi = 0.5 * (xi / xr);
     }
   }
-
   x->re = absxi;
   x->im = xr;
 }
 
-/* End of code generation (sqrt.c) */
+} // namespace coder
+
+// End of code generation (sqrt.cpp)

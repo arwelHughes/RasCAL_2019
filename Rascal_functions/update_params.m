@@ -6,8 +6,8 @@ updateParamsTable();
 updateBacksTable();
 updateScalesTable();
 updateShiftsTable();
-% updateNbInTable();
-% updateNbOutTable();
-% updateResolutionTable();
+updateNbInTable();
+updateNbOutTable();
+updateResolutionTable();
 
 drawnow;
