@@ -7,9 +7,9 @@ visible = getappdata(0,'resampleCheckVisible');
 panel = getappdata(0,'resampleOptionsPanel');
 resamFig = getappdata(0,'resampleCheckFigure');
 
-if ~visible || isempty(visible) || ~isnumeric(resamFig)
+if ~visible || isempty(visible) %|| ~isnumeric(resamFig)
     resamFig = figure('Name','Resampling Check','DockControls','off',...
-         'MenuBar','none','NumberTitle','off','ToolBar','none',...
+         'MenuBar','none','NumberTitle','off','ToolBar','figure',...
          'CloseRequestFcn',@resampFigClosereq);
     clf;
     hold on;

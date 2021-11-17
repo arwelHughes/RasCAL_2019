@@ -29,6 +29,9 @@ setappdata(0,'rascalPath',rascalPath);
 addRascalPaths;
 
 splash = SplashScreen('rascal','rascalSplash.png');
+versionString = ['Version:  ',getVersion()];
+splash.addText( 415, 300, versionString, 'FontSize', 12, 'FontName','Calibri','Color', [0 0 0] )
+
 
 hourglassBusy = javax.swing.ImageIcon(fullfile(rascalPath,'Rascal_functions','Hourglass.gif'));
 hourglassBusy = javaObjectEDT(hourglassBusy);

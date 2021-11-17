@@ -79,10 +79,15 @@ fWindow.setVisible(false);
 unlockMainControlsFrame();
 unlockMainGuiFrame();
 
-resPlot = getappdata(0,'resampleCheckFigure');
-if ~isempty(resPlot)
-    delete(resPlot);
+visible = getappdata(0,'resampleCheckVisible');
+if visible
+    resPlot = getappdata(0,'resampleCheckFigure');
+    try
+        close(resPlot);
+    catch
+    end
 end
+setappdata(0,'resampleCheckVisible',false);
 
 end
 %__________________________________________________________________________
@@ -180,12 +185,16 @@ fitopts.DE.Strategy = DEStrategy+1;
 
 setappdata(0,'fittingOptions',fitopts);
 
-resPlot = getappdata(0,'resampleCheckFigure');
-if ~isempty(resPlot)
-    delete(resPlot);
+visible = getappdata(0,'resampleCheckVisible');
+if visible
+    resPlot = getappdata(0,'resampleCheckFigure');
+    try
+        close(resPlot);
+    catch
+    end
 end
 
 rsafeCalcAndPlot();
-
+setappdata(0,'resampleCheckVisible',false);
 
 end
