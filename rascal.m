@@ -28,7 +28,7 @@ rascalPath = pwd;
 setappdata(0,'rascalPath',rascalPath);
 addRascalPaths;
 
-splash = SplashScreen('rascal','rascalSplash.png');
+splash = SplashScreen('rascal','rascal-r2019_splash.png');
 versionString = ['Version:  ',getVersion()];
 splash.addText( 415, 300, versionString, 'FontSize', 12, 'FontName','Calibri','Color', [0 0 0] )
 
