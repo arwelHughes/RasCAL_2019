@@ -99,6 +99,7 @@ fWindow = getappdata(0,'fittingOptionsFrame');
 simplexOptionsPanel = getappdata(0,'simplexOptionsPanel');
 cmaesOptionsPanel = getappdata(0,'cmaesOptionsPanel');
 DEOptionsPanel = getappdata(0,'DEOptionsPanel');
+resOptionsPanel = getappdata(0,'resampleOptionsPanel');
 fitopts = getappdata(0,'fittingOptions');
 
 %q4CheckBox = fWindow.getFitQ4Checkbox();
@@ -140,7 +141,7 @@ problem = getappdata(0,'problem');
 % 
 % numberOfSlaves = str2num(char(fWindow.getNumberOfSlavesBox().getText));
 
-setappdata(0,'problem',problem);
+%setappdata(0,'problem',problem);
 %setappdata(0,'numberOfSlaves',numberOfSlaves);
 
 SimptargetChi = simplexOptionsPanel.getSmplxTargetChiBox().getText;
@@ -182,6 +183,12 @@ fitopts.DE.ValueToReach = str2num(char(DEvalueToReach));
 fitopts.DE.PopSize = str2num(char(DEpopulationSize));
 fitopts.DE.StepSize = str2num(char(DEstepSize));
 fitopts.DE.Strategy = DEStrategy+1;
+
+resampleNlayers = str2double(resOptionsPanel.getResNLayersTextfield().getText);
+resampleAngle = str2double(resOptionsPanel.getResAngleTextField().getText);
+problem.resampleNLayers = resampleNlayers;
+problem.resampleAngle = resampleAngle;
+setappdata(0,'problem',problem);
 
 setappdata(0,'fittingOptions',fitopts);
 

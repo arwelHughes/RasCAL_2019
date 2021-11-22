@@ -48,7 +48,9 @@ for loop = 1:number_of_contrasts
     xstart = x(1);
     xend = x(end);
     newX = linspace(xstart,xend,100);
-    yy = adaptive(f, [xstart xend], 'minAngle',0.7*pi, 'nPoints', 50);
+    nResamPoints = problem.resampleNLayers;
+    angle = problem.resampleAngle;
+    yy = adaptive(f, [xstart xend], 'minAngle',angle*pi, 'nPoints', nResamPoints);
     
     newX = yy(:,1);
     newY = yy(:,2);
