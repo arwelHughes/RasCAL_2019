@@ -1,4 +1,4 @@
-function reSetProblem(problem);
+function reSetProblem(problem)
 
 problem = rascal_defaults(problem);
 problem = dealWithLegacyIssues(problem);

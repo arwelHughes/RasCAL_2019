@@ -26,6 +26,7 @@ rascalPaths = {fullfile('Rascal_functions','') ;
     fullfile('Rascal_functions','eAnalysis','bayes');
     fullfile('Rascal_functions','eAnalysis','bayes','mcmcstat');
     fullfile('Rascal_functions','eAnalysis','bayes','bayesRefPlot');
+    fullfile('Rascal_functions','eAnalysis','bayes','RAT_process');
     };
 
 for i = 1:length(rascalPaths)

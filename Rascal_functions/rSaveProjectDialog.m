@@ -60,7 +60,7 @@ if ~((exist(path) ~= 7) || (exist(path) ~=0))
     addInfoIext(['(' path ')']);
 end
 
-if (exist(path) == 0);
+if (exist(path) == 0)
     [success,message] = mkdir(path); 
 else
     success = 1;

@@ -49,7 +49,7 @@ end
 
 makecontrastEditPanelTablesCombos(problem);
 
-for i = 1:problem.numberOfContrasts;
+for i = 1:problem.numberOfContrasts
     thisContrast = existingContrastPanelSetup(i);
     allContrastPanels{i} = thisContrast;
     name = ['Contrast ' num2str(i)];
