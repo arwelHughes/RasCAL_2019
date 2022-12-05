@@ -1,4 +1,4 @@
-function problem = unpackparams(problem);
+function problem = unpackparams(problem)
 
 %Unpack the params out of the fitparsma and otherparams arrays
 %back into problem.params

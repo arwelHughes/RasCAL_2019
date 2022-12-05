@@ -26,22 +26,22 @@ end
 
 
 % Define model and method options.
-model.modelfun      =   @refModel;     % will return a reflectivity curve
-model.ssfun         =   @fitModel;     % will return chi squared
-%model.sigma2        =   1;          % initial error variance
+model.modelfun      =   @refModel;      % will return a reflectivity curve
+model.ssfun         =   @fitModel;      % will return chi squared
+%model.sigma2        =   1;             % initial error variance
 %model.N0            =   1;             % prior (invchisq) weight for sigma2
 model.nbatch        = numberOfContrasts;
 
-options.method      = 'dram';          % adaptation method (mh, am, dr, dram)
-options.nsimu       = nsimu;           % no of simulation
+options.method      = 'dram';           % adaptation method (mh, am, dr, dram)
+options.nsimu       = nsimu;            % no of simulation
 %options.qcov        = eye(3)*0.001;    % proposal covariance (not sure why 11....)
 %options.adaptint    = adaptint;        % adaptation interval
-options.printint    = 200;             % how often to show info of acceptance ratios
-options.verbosity   = 1;               % how much to show output
-options.waitbar     = 1;               % show graphical waitbar
-options.updatesigma = 0;               % update error variance
-options.stats       = 1;               % save extra statistics in result
-options.burnintime  = burnin;      % burn in time..
+options.printint    = 200;              % how often to show info of acceptance ratios
+options.verbosity   = 1;                % how much to show output
+options.waitbar     = 1;                % show graphical waitbar
+options.updatesigma = 0;                % update error variance
+options.stats       = 1;                % save extra statistics in result
+options.burnintime  = burnin;           % burn in time..
 
 % options.method = 'dram';
 % options.nsimu = nsimu;%50000;
@@ -51,10 +51,10 @@ options.burnintime  = burnin;      % burn in time..
 % 
 % model.ssfun = @MCMC_Intrafun;
 
-res = [];
+results = [];
 for i = 1:loop
     bayesInfoText(sprintf('Running loop %d of %d',i,loop));
-    [results,chain,s2chain,sschain] = mcmcrun(model, data, params, options, res);
+    [results,chain,s2chain,sschain] = mcmcrun(model, data, params, options, results);
 end
 
 output.results = results;

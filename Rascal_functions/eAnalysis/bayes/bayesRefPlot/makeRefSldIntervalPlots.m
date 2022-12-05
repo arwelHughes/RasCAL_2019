@@ -1,4 +1,4 @@
-function makeRefSldIntervalPlots(intervals,reflectivityFig,problem,best,predInt)
+function makeRefSldIntervalPlots(intervals,reflectivityFig,problem,predInt)
 
 thisHandle = reflectivityFig;
 figure(thisHandle);
@@ -24,72 +24,87 @@ numberOfContrasts = problem.numberOfContrasts;
 for i = 1:numberOfContrasts
     switch predInt
         case 95
-            allShadingRef = intervals.refShading_95;
-            allShadingSld = intervals.sldShading_95;
-            %theseLimsRef = refIntervals.predlims{i};
-            %theseLimsSld = sldIntervals.predlims{i};
-            
-            %thisMin = theseLimsRef{:}(1,:);
-            %thisMax = theseLimsRef{:}(7,:);
-            thisMin = allShadingRef{i}(:,3);
-            thisMax = allShadingRef{i}(:,4);
-            
-            thisScalefactor = problem.scalefactors(i);
-            
-            shadingRef{i} = [thisMin(:) thisMax(:)];%./thisScalefactor;
-            
-            %thisMin = theseLimsSld{:}(1,:);
-            %thisMax = theseLimsSld{:}(7,:);
-            thisMin = allShadingSld{i}(:,3);
-            thisMax = allShadingSld{i}(:,4);
-            
-            shadingSld{i} = [thisMin(:) thisMax(:)];
-            
-        case 65
-             allShadingRef = intervals.refShading_65;
-             allShadingSld = intervals.sldShading_65;
+%              allShadingRef = intervals.refShading_65;
+%              allShadingSld = intervals.sldShading_65;
             %theseLimsRef = refIntervals.predlims{i};
             %theseLimsSld = sldIntervals.predlims{i};
             
            %thisMin = theseLimsRef{:}(1,:);
             %thisMax = theseLimsRef{:}(7,:);
-            thisMin = allShadingRef{i}(:,3);
-            thisMax = allShadingRef{i}(:,4);
-            
+%             thisMin = allShadingRef{i}(:,3);
+%             thisMax = allShadingRef{i}(:,4);
+            thisMin = intervals.predlims.refPredInts{i}(1,:);
+            thisMax = intervals.predlims.refPredInts{i}(7,:);
+
             thisScalefactor = problem.scalefactors(i);
             
             shadingRef{i} = [thisMin(:) thisMax(:)];%./thisScalefactor;
             
             %thisMin = theseLimsSld{:}(1,:);
             %thisMax = theseLimsSld{:}(7,:);
-            thisMin = allShadingSld{i}(:,3);
-            thisMax = allShadingSld{i}(:,4);
+%             thisMin = allShadingSld{i}(:,3);
+%             thisMax = allShadingSld{i}(:,4);
+
+            thisMin = intervals.predlims.sldPredInts{i}(1,:);
+            thisMax = intervals.predlims.sldPredInts{i}(7,:);
             
             shadingSld{i} = [thisMin(:) thisMax(:)];
-        case 25
-            allShadingRef = intervals.refShading_25;
-            allShadingSld = intervals.sldShading_25;
+            
+        case 65
+%              allShadingRef = intervals.refShading_65;
+%              allShadingSld = intervals.sldShading_65;
             %theseLimsRef = refIntervals.predlims{i};
             %theseLimsSld = sldIntervals.predlims{i};
             
-            %thisMin = theseLimsRef{:}(1,:);
+           %thisMin = theseLimsRef{:}(1,:);
             %thisMax = theseLimsRef{:}(7,:);
-            thisMin = allShadingRef{i}(:,3);
-            thisMax = allShadingRef{i}(:,4);
-            
+%             thisMin = allShadingRef{i}(:,3);
+%             thisMax = allShadingRef{i}(:,4);
+            thisMin = intervals.predlims.refPredInts{i}(2,:);
+            thisMax = intervals.predlims.refPredInts{i}(6,:);
+
             thisScalefactor = problem.scalefactors(i);
             
             shadingRef{i} = [thisMin(:) thisMax(:)];%./thisScalefactor;
             
             %thisMin = theseLimsSld{:}(1,:);
             %thisMax = theseLimsSld{:}(7,:);
-            thisMin = allShadingSld{i}(:,3);
-            thisMax = allShadingSld{i}(:,4);
+%             thisMin = allShadingSld{i}(:,3);
+%             thisMax = allShadingSld{i}(:,4);
+
+            thisMin = intervals.predlims.sldPredInts{i}(2,:);
+            thisMax = intervals.predlims.sldPredInts{i}(6,:);
             
             shadingSld{i} = [thisMin(:) thisMax(:)];
-        otherwise
-            shadingRef = intervals.refShading_95;
-            shadingSld = intervals.sldShading_95;
+        case 25
+%              allShadingRef = intervals.refShading_65;
+%              allShadingSld = intervals.sldShading_65;
+            %theseLimsRef = refIntervals.predlims{i};
+            %theseLimsSld = sldIntervals.predlims{i};
+            
+           %thisMin = theseLimsRef{:}(1,:);
+            %thisMax = theseLimsRef{:}(7,:);
+%             thisMin = allShadingRef{i}(:,3);
+%             thisMax = allShadingRef{i}(:,4);
+            thisMin = intervals.predlims.refPredInts{i}(3,:);
+            thisMax = intervals.predlims.refPredInts{i}(5,:);
+
+            thisScalefactor = problem.scalefactors(i);
+            
+            shadingRef{i} = [thisMin(:) thisMax(:)];%./thisScalefactor;
+            
+            %thisMin = theseLimsSld{:}(1,:);
+            %thisMax = theseLimsSld{:}(7,:);
+%             thisMin = allShadingSld{i}(:,3);
+%             thisMax = allShadingSld{i}(:,4);
+
+            thisMin = intervals.predlims.sldPredInts{i}(3,:);
+            thisMax = intervals.predlims.sldPredInts{i}(5,:);
+            
+            shadingSld{i} = [thisMin(:) thisMax(:)];
+%         otherwise
+%             shadingRef = intervals.refShading_95;
+%             shadingSld = intervals.sldShading_95;
     end
 end
 
@@ -99,9 +114,10 @@ for i = 1:numberOfContrasts
     
     % Get the intervals for the current contrast 
     thisInterval = shadingRef{i};
-    thisBest = best.bestFits{i};
-    thisX = thisBest(:,1);
-    thisY = thisBest(:,2);
+    %thisBest = best.bestFits{i};
+    
+    thisX = intervals.predlims.refXdata{i}; %thisBest(:,1);
+    thisY = intervals.predlims.refPredInts{i}(4,:); %thisBest(:,2);
     thisMin = thisInterval(:,1);
     thisMax = thisInterval(:,2);
     thisData = allData{i};
@@ -143,9 +159,9 @@ for i = 1:numberOfContrasts
     
     % Get the intervals for the current contrast 
     thisInterval = shadingSld{i};
-    bestSld = best.bestSlds{i};
-    thisX = bestSld(:,1);
-    thisY = bestSld(:,2);
+    bestSld = intervals.predlims.sldPredInts{i}(4,:); %best.bestSlds{i};
+    thisX = intervals.predlims.sldXdata{i}; %bestSld(:,1);
+    thisY = bestSld;
     thisMin = thisInterval(:,1);
     thisMax = thisInterval(:,2);
     
@@ -184,7 +200,7 @@ while any(find(minCurve<0))
 end
 
 yp = [minCurve',fliplr(maxCurve')];
-xp = [x',fliplr(x')];
+xp = [x,fliplr(x)];
 
 patchSaturation = saturation;
 patchColor = col+(1-col)*(1-patchSaturation);
@@ -226,7 +242,7 @@ function h = makePatchNeg(x,y,minCurve,maxCurve,col,saturation,thisAxis)
 % end
 
 yp = [minCurve',fliplr(maxCurve')];
-xp = [x',fliplr(x')];
+xp = [x,fliplr(x)];
 
 patchSaturation = saturation;
 patchColor = col+(1-col)*(1-patchSaturation);
@@ -236,10 +252,10 @@ edgeColor = col+(1-col)*(1-edgeSaturation);
 
 set(gcf,'renderer','OpenGl')
 
-patch(xp,yp,1,'facecolor',patchColor,'edgecolor',edgeColor,'faceAlpha',0.5,'Parent',thisAxis);
+patch(xp,yp,1,'facecolor',patchColor,'edgecolor',edgeColor,'Parent',thisAxis);
 
 h = plot(x,y,'k-','Parent',thisAxis);
-set(h,'LineWidth',2)
+set(h,'LineWidth',1.5)
 
 set(gca,'Box','on');
 

@@ -52,28 +52,33 @@ output = runBayes(loop,nsimu,burnin,params);
 
     
 % Calculate the prediction intervals
-[best, intervals] = calcMCMCstatRefErrors(output.results,output.chain,bestVals_max);
+%[best, intervals] = calcMCMCstatRefErrors(output.results,output.chain,bestVals_max);
+
+% Use the modified RAT version of the calculation..
+[bayesResults] = processBayes_newMethod(output,problem);
+
+
 %[intervals,paramIntervals,best] = calcMCMCStatErrors_mcmcPred(output,problem);
 
 % Make the reflectivity and SLD plots
-msgBoxTest('waitbar','Plotting Reflectivities - please wait',[]);
-makeRefSldIntervalPlots(intervals,bayesHandles.hRefs,problem,best,65)
+%msgBoxTest('waitbar','Plotting Reflectivities - please wait',[]);
+makeRefSldIntervalPlots(bayesResults,bayesHandles.hRefs,problem,65)
 msgBoxTest('close',[],[])
  
 % Set the callbacks for the prediction interval
 children = get(bayesHandles.hRefs,'children');
 intervalCombo = findobj(children,'Tag','intervalCombo'); 
 set(intervalCombo,'Value',2);
-figUserData.intervals = intervals;
+figUserData.bayesResults = bayesResults;
 figUserData.hRefFigure = bayesHandles.hRefs;
 figUserData.problem = problem;
-figUserData.best = best;
+figUserData.best = bayesResults.bestFitsMean;
 set(intervalCombo,'Callback',@intervalChangedCallback,'UserData',figUserData);
 
 % Make the params table
-paramIntervals.intervals_95 = intervals.values_95;
-paramIntervals.intervals_65 = intervals.values_65;
-paramIntervals.intervals_25 = intervals.values_25;
+paramIntervals.intervals_95 = bayesResults.parConfInts.par95; %intervals.values_95;
+paramIntervals.intervals_65 = bayesResults.parConfInts.par65; %intervals.values_65;
+paramIntervals.intervals_25 = bayesResults.parConfInts.par25; %intervals.values_25;
 updateBayesResultsTable(bestVals_max,paramIntervals,bayesHandles.hVals);
 
 % Make the correlations plot
@@ -97,18 +102,66 @@ mcmcplot(output.chain,[],results,'chainpanel');
 problem = oldProblem;
 setappdata(0,'problem',problem);
 
+% Convert the RAT formats for all these to the RasCAL format to keep
+% everyone happy....    (??)
+%[best,intervals] = convertToR1Format(bayesResults,problem.numberOfContrasts);
+
 % Now make the output structure
 bayesOutput.posteriors = posteriors;
-bayesOutput.bestFits = best;
-bayesOutput.intervals = intervals;
+%bayesOutput.bestFits = best;
+%bayesOutput.intervals = intervals;
+bayesOutput.bayesResults = bayesResults;
 bayesOutput.data = problem.shifted_data;
 bayesOutput.MCMCoutput = output;
 
 setappdata(0,'bayesOutput',bayesOutput);
 setappdata(0,'bayesHasRun',true);
 
-
 end
+
+% function [best,intervals] = convertToR1Format(bayesResults,numberOfContrasts)
+% 
+% % intervals = 
+% % 
+% %   struct with fields:
+% % 
+% %     refShading_95: {[53×4 double]}
+% %         values_95: [3×2 double]
+% %     sldShading_95: {[101×4 double]}
+% %        message_95: 'ok'
+% %     refShading_65: {[53×4 double]}
+% %         values_65: [3×2 double]
+% %     sldShading_65: {[101×4 double]}
+% %        message_65: 'ok'
+% %     refShading_25: {[53×4 double]}
+% %         values_25: [3×2 double]
+% %     sldShading_25: {[101×4 double]}
+% %        message_25: 'ok'
+% 
+% % best = 
+% % 
+% %   struct with fields:
+% % 
+% %     bestFits: {[53×2 double]}
+% %     bestSlds: {[101×2 double]}
+% 
+% for i = 1:numberOfContrasts
+%     theseRefLimits = bayesResults.predlims.refPredInts{i};
+%     min95 = theseRefLimits(1,:);
+%     max95 = theseRefLimits(7,:);
+%     refShading_95{i} = [min95(:) max_95(:)];
+%     values_95 = 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% end
+
+%end
 
 
 function intervalChangedCallback(source,event,a)
@@ -117,10 +170,11 @@ disp('box changed');
 
 allOptions = source.String;
 chosenOption = allOptions{source.Value};
-intervals = source.UserData.intervals;
+%intervals = source.UserData.intervals;
+bayesResults = source.UserData.bayesResults;
 hRefFigure = source.UserData.hRefFigure;
 problem = source.UserData.problem;
-best = source.UserData.best;
+%best = source.UserData.best;
 
 switch chosenOption
     case '95%'
@@ -131,6 +185,7 @@ switch chosenOption
         predInt = 25;
 end
             
-makeRefSldIntervalPlots(intervals,hRefFigure,problem,best,predInt);
+%makeRefSldIntervalPlots(intervals,hRefFigure,problem,best,predInt);
+makeRefSldIntervalPlots(bayesResults,hRefFigure,problem,predInt)
 
 end
