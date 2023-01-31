@@ -1,0 +1,1 @@
+ProcessID,DelayedRejectionStage,MeanAcceptanceRate,AdaptationMeasure,BurninLocation,SampleWeight,SampleLogFunc,Substrate Roughness,Area per molecule,Head Thickness,Theta,Backs parameter 1,Backs parameter 2,D2O,ACMW
