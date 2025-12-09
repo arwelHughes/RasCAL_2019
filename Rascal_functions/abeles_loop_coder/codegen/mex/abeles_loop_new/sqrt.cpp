@@ -1,7 +1,7 @@
 //
 // Non-Degree Granting Education License -- for use at non-degree
-// granting, nonprofit, educational organizations only. Not for
-// government, commercial, or other organizational use.
+// granting, nonprofit, education, and research organizations only. Not
+// for commercial or industrial use.
 //
 // sqrt.cpp
 //
@@ -15,76 +15,74 @@
 
 // Function Definitions
 namespace coder {
-void b_sqrt(creal_T *x)
+void b_sqrt(creal_T &x)
 {
-  real_T absxi;
   real_T xi;
   real_T xr;
-  xr = x->re;
-  xi = x->im;
+  real_T yi;
+  real_T yr;
+  xr = x.re;
+  xi = x.im;
   if (xi == 0.0) {
     if (xr < 0.0) {
-      absxi = 0.0;
-      xr = muDoubleScalarSqrt(-xr);
+      yr = 0.0;
+      yi = muDoubleScalarSqrt(-xr);
     } else {
-      absxi = muDoubleScalarSqrt(xr);
-      xr = 0.0;
+      yr = muDoubleScalarSqrt(xr);
+      yi = 0.0;
     }
   } else if (xr == 0.0) {
     if (xi < 0.0) {
-      absxi = muDoubleScalarSqrt(-xi / 2.0);
-      xr = -absxi;
+      yr = muDoubleScalarSqrt(-xi / 2.0);
+      yi = -yr;
     } else {
-      absxi = muDoubleScalarSqrt(xi / 2.0);
-      xr = absxi;
+      yr = muDoubleScalarSqrt(xi / 2.0);
+      yi = yr;
     }
   } else if (muDoubleScalarIsNaN(xr)) {
-    absxi = xr;
+    yr = rtNaN;
+    yi = rtNaN;
   } else if (muDoubleScalarIsNaN(xi)) {
-    absxi = xi;
-    xr = xi;
+    yr = rtNaN;
+    yi = rtNaN;
   } else if (muDoubleScalarIsInf(xi)) {
-    absxi = muDoubleScalarAbs(xi);
-    xr = xi;
+    yr = muDoubleScalarAbs(xi);
+    yi = xi;
   } else if (muDoubleScalarIsInf(xr)) {
     if (xr < 0.0) {
-      absxi = 0.0;
-      xr = xi * -xr;
+      yr = 0.0;
+      yi = xi * -xr;
     } else {
-      absxi = xr;
-      xr = 0.0;
+      yr = xr;
+      yi = 0.0;
     }
   } else {
-    real_T absxr;
-    absxr = muDoubleScalarAbs(xr);
-    absxi = muDoubleScalarAbs(xi);
-    if ((absxr > 4.4942328371557893E+307) ||
-        (absxi > 4.4942328371557893E+307)) {
-      absxr *= 0.5;
-      absxi = muDoubleScalarHypot(absxr, absxi * 0.5);
-      if (absxi > absxr) {
-        absxi =
-            muDoubleScalarSqrt(absxi) * muDoubleScalarSqrt(absxr / absxi + 1.0);
+    yr = muDoubleScalarAbs(xr);
+    yi = muDoubleScalarAbs(xi);
+    if ((yr > 4.4942328371557893E+307) || (yi > 4.4942328371557893E+307)) {
+      yr *= 0.5;
+      yi = muDoubleScalarHypot(yr, yi * 0.5);
+      if (yi > yr) {
+        yr = muDoubleScalarSqrt(yi) * muDoubleScalarSqrt(yr / yi + 1.0);
       } else {
-        absxi = muDoubleScalarSqrt(absxi) * 1.4142135623730951;
+        yr = muDoubleScalarSqrt(yi) * 1.4142135623730951;
       }
     } else {
-      absxi =
-          muDoubleScalarSqrt((muDoubleScalarHypot(absxr, absxi) + absxr) * 0.5);
+      yr = muDoubleScalarSqrt((muDoubleScalarHypot(yr, yi) + yr) * 0.5);
     }
     if (xr > 0.0) {
-      xr = 0.5 * (xi / absxi);
+      yi = 0.5 * (xi / yr);
     } else {
       if (xi < 0.0) {
-        xr = -absxi;
+        yi = -yr;
       } else {
-        xr = absxi;
+        yi = yr;
       }
-      absxi = 0.5 * (xi / xr);
+      yr = 0.5 * (xi / yi);
     }
   }
-  x->re = absxi;
-  x->im = xr;
+  x.re = yr;
+  x.im = yi;
 }
 
 } // namespace coder

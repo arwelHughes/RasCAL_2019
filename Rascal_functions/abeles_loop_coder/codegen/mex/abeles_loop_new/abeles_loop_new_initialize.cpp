@@ -1,7 +1,7 @@
 //
 // Non-Degree Granting Education License -- for use at non-degree
-// granting, nonprofit, educational organizations only. Not for
-// government, commercial, or other organizational use.
+// granting, nonprofit, education, and research organizations only. Not
+// for commercial or industrial use.
 //
 // abeles_loop_new_initialize.cpp
 //
@@ -14,7 +14,15 @@
 #include "abeles_loop_new_data.h"
 #include "rt_nonfinite.h"
 
+// Function Declarations
+static void abeles_loop_new_once();
+
 // Function Definitions
+static void abeles_loop_new_once()
+{
+  mex_InitInfAndNan();
+}
+
 void abeles_loop_new_initialize()
 {
   emlrtStack st{
@@ -22,13 +30,14 @@ void abeles_loop_new_initialize()
       nullptr, // tls
       nullptr  // prev
   };
-  mex_InitInfAndNan();
   mexFunctionCreateRootTLS();
-  emlrtBreakCheckR2012bFlagVar = emlrtGetBreakCheckFlagAddressR2012b();
   st.tls = emlrtRootTLSGlobal;
+  emlrtBreakCheckR2012bFlagVar = emlrtGetBreakCheckFlagAddressR2022b(&st);
   emlrtClearAllocCountR2012b(&st, false, 0U, nullptr);
   emlrtEnterRtStackR2012b(&st);
-  emlrtFirstTimeR2012b(emlrtRootTLSGlobal);
+  if (emlrtFirstTimeR2012b(emlrtRootTLSGlobal)) {
+    abeles_loop_new_once();
+  }
 }
 
 // End of code generation (abeles_loop_new_initialize.cpp)

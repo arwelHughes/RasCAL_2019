@@ -1,7 +1,7 @@
 //
 // Non-Degree Granting Education License -- for use at non-degree
-// granting, nonprofit, educational organizations only. Not for
-// government, commercial, or other organizational use.
+// granting, nonprofit, education, and research organizations only. Not
+// for commercial or industrial use.
 //
 // abeles_loop_new_data.cpp
 //
@@ -20,7 +20,7 @@ const volatile char_T *emlrtBreakCheckR2012bFlagVar{nullptr};
 emlrtContext emlrtContextGlobal{
     true,                                                 // bFirstTime
     false,                                                // bInitialized
-    131610U,                                              // fVersionInfo
+    131674U,                                              // fVersionInfo
     nullptr,                                              // fErrorFunction
     "abeles_loop_new",                                    // fFunctionName
     nullptr,                                              // fRTCallStack

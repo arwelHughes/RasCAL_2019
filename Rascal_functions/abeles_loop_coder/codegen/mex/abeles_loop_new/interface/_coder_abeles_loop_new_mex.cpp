@@ -1,7 +1,7 @@
 //
 // Non-Degree Granting Education License -- for use at non-degree
-// granting, nonprofit, educational organizations only. Not for
-// government, commercial, or other organizational use.
+// granting, nonprofit, education, and research organizations only. Not
+// for commercial or industrial use.
 //
 // _coder_abeles_loop_new_mex.cpp
 //
@@ -52,13 +52,9 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
                  const mxArray *prhs[])
 {
   mexAtExit(&abeles_loop_new_atexit);
-  // Module initialization.
   abeles_loop_new_initialize();
   try {
-    emlrtShouldCleanupOnError((emlrtCTX *)emlrtRootTLSGlobal, false);
-    // Dispatch the entry-point.
     abeles_loop_new_mexFunction(nlhs, plhs, nrhs, prhs);
-    // Module termination.
     abeles_loop_new_terminate();
   } catch (...) {
     emlrtCleanupOnException((emlrtCTX *)emlrtRootTLSGlobal);
@@ -68,8 +64,8 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
 
 emlrtCTX mexFunctionCreateRootTLS()
 {
-  emlrtCreateRootTLSR2021a(&emlrtRootTLSGlobal, &emlrtContextGlobal, nullptr, 1,
-                           (void *)&emlrtExceptionBridge);
+  emlrtCreateRootTLSR2022a(&emlrtRootTLSGlobal, &emlrtContextGlobal, nullptr, 1,
+                           (void *)&emlrtExceptionBridge, "UTF-8", true);
   return emlrtRootTLSGlobal;
 }
 

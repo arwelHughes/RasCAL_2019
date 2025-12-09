@@ -1,7 +1,7 @@
 //
 // Non-Degree Granting Education License -- for use at non-degree
-// granting, nonprofit, educational organizations only. Not for
-// government, commercial, or other organizational use.
+// granting, nonprofit, education, and research organizations only. Not
+// for commercial or industrial use.
 //
 // _coder_abeles_loop_new_mex.cpp
 //
@@ -17,24 +17,15 @@ void mexFunction(int32_T nlhs, mxArray *plhs[], int32_T nrhs,
                  const mxArray *prhs[])
 {
   mexAtExit(&abeles_loop_new_atexit);
-  // Module initialization.
   abeles_loop_new_initialize();
-  try {
-    emlrtShouldCleanupOnError((emlrtCTX *)emlrtRootTLSGlobal, false);
-    // Dispatch the entry-point.
-    unsafe_abeles_loop_new_mexFunction(nlhs, plhs, nrhs, prhs);
-    // Module termination.
-    abeles_loop_new_terminate();
-  } catch (...) {
-    emlrtCleanupOnException((emlrtCTX *)emlrtRootTLSGlobal);
-    throw;
-  }
+  unsafe_abeles_loop_new_mexFunction(nlhs, plhs, nrhs, prhs);
+  abeles_loop_new_terminate();
 }
 
 emlrtCTX mexFunctionCreateRootTLS()
 {
-  emlrtCreateRootTLSR2021a(&emlrtRootTLSGlobal, &emlrtContextGlobal, nullptr, 1,
-                           nullptr);
+  emlrtCreateRootTLSR2022a(&emlrtRootTLSGlobal, &emlrtContextGlobal, nullptr, 1,
+                           nullptr, "UTF-8", true);
   return emlrtRootTLSGlobal;
 }
 
@@ -46,6 +37,7 @@ void unsafe_abeles_loop_new_mexFunction(int32_T nlhs, mxArray *plhs[1],
       nullptr, // tls
       nullptr  // prev
   };
+  const mxArray *b_prhs[7];
   const mxArray *outputs;
   st.tls = emlrtRootTLSGlobal;
   // Check for proper number of arguments.
@@ -58,7 +50,10 @@ void unsafe_abeles_loop_new_mexFunction(int32_T nlhs, mxArray *plhs[1],
                         "abeles_loop_new");
   }
   // Call the function.
-  abeles_loop_new_api(prhs, &outputs);
+  for (int32_T i{0}; i < 7; i++) {
+    b_prhs[i] = prhs[i];
+  }
+  abeles_loop_new_api(b_prhs, &outputs);
   // Copy over outputs to the caller.
   emlrtReturnArrays(1, &plhs[0], &outputs);
 }

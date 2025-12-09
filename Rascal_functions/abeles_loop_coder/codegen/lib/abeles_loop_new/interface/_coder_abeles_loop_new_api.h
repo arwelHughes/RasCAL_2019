@@ -1,7 +1,7 @@
 //
 // Non-Degree Granting Education License -- for use at non-degree
-// granting, nonprofit, educational organizations only. Not for
-// government, commercial, or other organizational use.
+// granting, nonprofit, education, and research organizations only. Not
+// for commercial or industrial use.
 //
 // _coder_abeles_loop_new_api.h
 //
@@ -14,18 +14,19 @@
 // Include files
 #include "coder_array_mex.h"
 #include "emlrt.h"
+#include "mex.h"
 #include "tmwtypes.h"
 #include <algorithm>
 #include <cstring>
 
 // Type Definitions
-typedef struct {
+struct cell_wrap_0 {
   coder::array<real_T, 1U> f1;
-} cell_wrap_0;
+};
 
-typedef struct {
+struct cell_wrap_1 {
   coder::array<real_T, 2U> f1;
-} cell_wrap_1;
+};
 
 // Variable Declarations
 extern emlrtCTX emlrtRootTLSGlobal;
