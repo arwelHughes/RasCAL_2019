@@ -54,7 +54,7 @@ for r = 1:rows
     end
 end
 
-set(tableModel,'TableChangedCallback',@mainGuiNbInTableEditedCallback);
+set(tableModel,'TableChangedCallback',@mainGuiNbOutTableEditedCallback);
 setappdata(0,'mainGuiNbssTable',table);
 setappdata(0,'mainGuiNbssTableModel',tableModel);
 

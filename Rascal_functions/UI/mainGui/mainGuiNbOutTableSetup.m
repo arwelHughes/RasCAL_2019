@@ -39,8 +39,9 @@ for i = 2:4
     aColumn.setCellRenderer(rend);
 end
 
-
-set(model,'TableChangedCallback',@mainGuiNbOutTableEditedCallback);
+% Set the callback fro edits....
+mHandles = handle(model,'CallbackProperties');
+set(mHandles,'TableChangedCallback',@mainGuiNbOutTableEditedCallback);
 setappdata(0,'mainGuiNbssTable',table);
 setappdata(0,'mainGuiNbssTableModel',model);
 
